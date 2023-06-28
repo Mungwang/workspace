@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.cledr{
+    clear: both;
+}
+div{
+    box-sizing: border-box;
+}
+#container{
+    width: 100%;
+    height: 690px;
+}
+.container-1{
+    width: 100%;
+    height: 60px;
+
+}
+.div-1{
+    text-align: center;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    float:right;
+    margin-top: 10px;
+}
+.div-1 img{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+}
+.container-2{
+    width: 100%;
+    height: 570px;
+    position: relative;
+}
+.center{
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.google{
+    height: 45%;
+    background-image: url(../../images/google.png);
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.search{
+    height: auto;
+    margin-bottom: 20px;
+}
+input{
+    width: 90%;
+    height: 45px;
+    border-radius: 50px;
+    border:1px solid #666;
+    margin-left: 5%;
+}
+button{
+    width: 25%;
+    height: 40px;
+    border: 1px solid  #F8F8F8;
+    color:  #666;
+    margin-bottom: 50px;
+}
+.f-b{
+    margin-left: 25%;
+}
+.letter{
+    height: 15%;
+}
+.letter-2{
+    height: 15%;
+}
+.letter-2>button{
+    width: 30%;
+    margin-left: 35%;
+    font-size: 12px;
+}
+.container-3{
+    width: 100%;
+    height: 80px;
+    background-color: #F8F8F8;
+    font-size: 14px;
+    color: #666;
+    box-sizing: border-box;;
+    
+}
+.bottom-up{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.bottom-up> div{
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.bottom-down{
+    width: 100%;
+    height: 40px;
+}
+.bottom-down > div{
+    float: left;
+}
+
+.bottom-left{
+    width: 50%;
+    height: 40px;
+    padding-right: 100px;
+}
+.bottom-left > div{
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    float: right;
+}
+.bottom-right{
+    width: 50%;
+    height: 40px;
+    padding-left: 250px;
+}
+.bottom-right > div{
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
