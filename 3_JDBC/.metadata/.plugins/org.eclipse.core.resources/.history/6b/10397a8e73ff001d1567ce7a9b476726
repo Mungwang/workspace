@@ -1,0 +1,7 @@
+package edu.kh.jdbc.board.model.vo;
+
+// VO(Value Object) : 값 저장용 객체
+
+public class Board {
+
+}

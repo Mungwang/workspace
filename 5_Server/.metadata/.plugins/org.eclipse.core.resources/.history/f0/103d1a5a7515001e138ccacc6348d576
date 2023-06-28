@@ -1,0 +1,12 @@
+package edu.kh.servlet;
+
+import javax.servlet.http.HttpServlet;
+
+// Servlet 클래스를 만들 때는
+// 반드시 HTTPServlet을 상속 받아야 한다!
+
+public class ServletEx2 extends HttpServlet{
+	
+	
+
+}

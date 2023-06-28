@@ -1,0 +1,19 @@
+package edu.kh.jdbc.board.model.vo;
+
+import java.sql.Date;
+
+// VO(Value Object) : 값 저장용 객체
+// * 꼮 테이블과 같은 모양일 필요가 없다!
+// -> 어떤 데이터를 저장하여 옮기고 싶은지에 따라 필드 구성이 달라짐
+
+public class Board {
+	
+	// 게시글 목록 조회
+	private int boardNo;
+	private String boardTitle;
+	private Date createDate;
+	private int readCount;
+	private String memberName;
+	private int replyCount;
+
+}

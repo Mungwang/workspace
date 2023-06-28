@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ed.kh.array.ex.ArrayExaample1&apos; to &apos;ArrayExample1&apos;&#x0D;&#x0A;- Original project: &apos;04_array&apos;&#x0D;&#x0A;- Original element: &apos;ed.kh.array.ex.ArrayExaample1&apos;&#x0D;&#x0A;- Renamed element: &apos;ed.kh.array.ex.ArrayExample1&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ArrayExaample1&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;ed.kh.array.ex{ArrayExaample1.java[ArrayExaample1" matchStrategy="1" name="ArrayExample1" qualified="false" references="true" similarDeclarations="false" stamp="1682299461061" textual="false" version="1.0"/>
+</session>

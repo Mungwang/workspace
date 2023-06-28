@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;edu.kh.oarr.model.service.memberService&apos; to &apos;MemberService&apos;&#x0D;&#x0A;- Original project: &apos;07_objectArray&apos;&#x0D;&#x0A;- Original element: &apos;edu.kh.oarr.model.service.memberService&apos;&#x0D;&#x0A;- Renamed element: &apos;edu.kh.oarr.model.service.MemberService&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;memberService&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;edu.kh.oarr.model.service{memberService.java[memberService" matchStrategy="1" name="MemberService" qualified="false" references="true" similarDeclarations="false" stamp="1682994129248" textual="false" version="1.0"/>
+</session>
