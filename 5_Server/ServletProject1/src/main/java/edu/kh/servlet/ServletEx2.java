@@ -39,7 +39,7 @@ public class ServletEx2 extends HttpServlet{
 			}
 		}
 		
-		System.out.println("주만자 : " + orderer);
+		System.out.println("주문자 : " + orderer);
 		
 		// HttpServletRequest : 클라이언트 정보 + 전달된 값
 		// HttpServletResponse : 서버가 클라이언트에게 응답할 방법을 제공
@@ -69,7 +69,7 @@ public class ServletEx2 extends HttpServlet{
 		out.println("<html>");
 		
 		out.println("<head>");
-			out.println("<title> "+ orderer+"님의 주문 목록</title>");
+			out.println("<title> "+orderer+"님의 주문 목록</title>");
 		out.println("</head>");
 		
 		out.println("<body>");
