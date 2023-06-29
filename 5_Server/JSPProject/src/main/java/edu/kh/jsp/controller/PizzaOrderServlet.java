@@ -33,7 +33,7 @@ public class PizzaOrderServlet extends HttpServlet{
 		
 		int temp = 0; // 사이즈에 따른 추가 금액
 		if(size.equals("L")) temp =2000;
-		int result = (100000 + temp) * amount;
+		int result = (10000 + temp) * amount;
 		
 		// 응답 화면 작성 하는것을 JSP 위임
 		
