@@ -1,4 +1,6 @@
 <!-- Person클래스 import 순서상관 x -->
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="edu.kh.jsp.model.vo.Person"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,6 +20,8 @@
 		2. EL은 null을 빈칸으로 출력함
 			(null과 관련된 것은 모두 빈칸)
 	  -->
+				seesion 범위 sessionValue : ${ sessionValue }
+		
 	<h3>requset에서 Parameter 얻어오기</h3>
 	
 	<pre>
@@ -82,14 +86,50 @@
 		<br> ${ person.age }
 		<br> ${ person.address }
 		
+		<hr>
 		
+		<h3>null 처리 방법</h3>
 		
+		<pre>
+			EL에서 null을 출력해야 되는 경우 ""(빈 문자열)을 출력한다.
+			
+			+ NULLPointerException이 발생하는 코드에서도 ""(빈 문자열)을 출력한다.
+			
+			+ EL은 null인 경우을 확인할 때 empty 통해서 확인할 수 있다.
+			
+		</pre>
 		
+		<% 
+			List<String> list = null;
+		%>
 		
+		1) JSP 표현식 : <%= list %>
 		
+		<br> <%= list == null %>
 		
+		<br><br>
 		
+		2) EL(표현 약어) :  ${ list }
 		
+		<br> ${ empty null }
+		
+		<h3 style="color:red;">EL의 empty는 null과 비어있는 컬렉션을 비어있는 것으로 취급함</h3>
+		
+		<% 
+			list = new ArrayList<String>();
+		
+			// list ArrayList 객체를 참조 == null 아님
+			// 참조하고 있는 ArrayList에 내용은 없음 == 비어있음
+		%>
+		
+		${ empty list }
+		
+		<!-- 
+			EL을 이용해서 컬렉션 요소를 다룰 때
+			null인지 비어있는지 확인하는 방법이 동일하기 때문에
+			코드 작성 시 이를 잘 구분할 수 있도록 해야한다.
+			
+		-->
 		
 		
 		

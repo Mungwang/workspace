@@ -1,0 +1,11 @@
+package edu.kh.jsp.controller;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/EL/scope")
+public class ScopeServlet {
+	
+	// a 태그 용청은 모두 GET 방식
+	d
+	
+}

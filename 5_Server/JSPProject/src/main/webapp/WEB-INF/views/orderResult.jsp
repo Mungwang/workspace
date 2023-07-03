@@ -42,9 +42,10 @@
 		#area{
 			font-size : 18px;
 			font-weight : bold;
+			font-size : 20px;
 		}
 		
-		h1{ color : green; }
+		h1{ color : green; } 
 	</style>
 </head>
 <body>

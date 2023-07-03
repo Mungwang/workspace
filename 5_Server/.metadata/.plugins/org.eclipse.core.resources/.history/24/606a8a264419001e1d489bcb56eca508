@@ -1,0 +1,10 @@
+package edu.kh.jsp.controller;
+
+public class ScopeServlet {
+	
+	
+	private void dog() {
+		// TODO Auto-generated method stub
+
+	}
+}
