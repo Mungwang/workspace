@@ -1,7 +1,8 @@
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="edu.kh.jsp.model.vo.Member"><rhs name\="edu.kh.jsp.model.vo.Member"/></lhs><lhs name\="javax.naming.Context"><rhs name\="javax.naming.InitialContext"/></lhs></history>
 content_assist_number_of_computers=17
 eclipse.preferences.version=1
-java_doc_default=241,241,241
+java_doc_default=176,215,215
+java_doc_default_bold=true
 java_multi_line_comment=130,215,255
 java_single_line_comment=182,182,182
 org.eclipse.jdt.internal.ui.navigator.layout=2
