@@ -1,0 +1,40 @@
+projectlombok.org/download (loombook 다운)
+
+로컬에 라이브러리 폴더에 넣고 그폴더에서 cmd입력
+
+java -jar 치고 탭치면 자동으로 lombok.jar 나오고 엔터치면 빨간고추 나옴
+
+Specify location -> tools -> eclipse폴더 -> eclipse.exe -> 인스톨
+
+sql에 CreateXML.java파일 생성후
+package edu.kh.community.sql;
+
+import java.io.FileOutputStream;
+import java.util.Properties;
+import java.util.Scanner;
+
+public class CreateXML {
+   public static void main(String[] args) {
+
+      try {
+         Scanner sc = new Scanner(System.in);
+
+         System.out.print("생성할 XML 이름 입력 : ");
+
+         String fileName = sc.nextLine();
+
+         Properties prop = new Properties();
+
+         String filePath = "src/main/java/edu/kh/community/sql/";
+
+         prop.storeToXML(new FileOutputStream(filePath + fileName), fileName);
+
+         System.out.println(fileName + "생성 성공");
+
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+
+   }
+}
+
