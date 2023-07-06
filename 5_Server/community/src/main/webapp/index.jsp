@@ -21,7 +21,7 @@
                 </a>
             </section>
 
-            <!-- header의 두번째 자식 div -->
+            <!-- header의 두번째 자식 div! -->
             <section>
                 <article class="search-area">
                     
