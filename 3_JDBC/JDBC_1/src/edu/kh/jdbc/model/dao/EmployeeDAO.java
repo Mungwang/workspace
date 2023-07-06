@@ -45,13 +45,13 @@ public class EmployeeDAO {
 			String ip = "localhost"; // 접속할 아이피
 			String port = ":1521";
 			String sid = ":xe"; // 접속할 DB 이름
-			String user = "mgm"; // 사용자 계정 명
-			String pw = "mgm1234"; // 사용자 계정 비밀번호
+			String user = "iss"; // 사용자 계정 명
+			String pw = "iss1234"; // 사용자 계정 비밀번호
             conn = DriverManager.getConnection(type + ip + port + sid, user, pw);
             // DriverManager : Connection 생성 메소스 제공
 
             // 3) 수행할 SQL 작성
-            String sql = "SELECT * FROM EMPLOYEE ORDER BY EMP_ID";
+            String sql = "SELECT * FROM EMPLOYEE_COPY ORDER BY EMP_ID";
             // *** SQL 작성 시 세미콜론은 없어야 된다 !! ***
 
             // 4) Statement 객체 생성
@@ -127,15 +127,15 @@ public class EmployeeDAO {
 			String ip = "localhost"; // 접속할 아이피
 			String port = ":1521";
 			String sid = ":xe"; // 접속할 DB 이름
-			String user = "mgm"; // 사용자 계정 명
-			String pw = "mgm1234"; // 사용자 계정 비밀번호
+			String user = "iss"; // 사용자 계정 명
+			String pw = "iss1234"; // 사용자 계정 비밀번호
 
             // 커넥션 생성
             conn = DriverManager.getConnection(type + ip + port + sid, user, pw);
 
             stmt = conn.createStatement();
 
-            rs = stmt.executeQuery("SELECT * FROM EMPLOYEE WHERE EMP_ID = "+input);
+            rs = stmt.executeQuery("SELECT * FROM EMPLOYEE_COPY WHERE EMP_ID = "+input);
 
             // 조회 결과가 있다면 1행 밖에 나오지 않으므로 while 대신 if문 사용
             if(rs.next()){
@@ -184,11 +184,11 @@ public class EmployeeDAO {
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
 
             stmt = conn.createStatement();
 
-            rs = stmt.executeQuery("SELECT * FROM EMPLOYEE WHERE SALARY >= "+input);
+            rs = stmt.executeQuery("SELECT * FROM EMPLOYEE_COPY WHERE SALARY >= "+input);
 
             while(rs.next()) {
                 int empId = rs.getInt("EMP_ID"); // 현재 행의 EMP_ID 컬럼 값을 int  자료형으로 얻어옴.
@@ -242,7 +242,7 @@ public class EmployeeDAO {
             Class.forName("oracle.jdbc.driver.OracleDriver"); // 드라이버 메모리
 
             // 커넥션 생성
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
             // --> 생성된 커넥션을 이용해 SQL을 수행하면 자동 커밋이 된다(기본값)
             // --> 자동 커밋 기능을 끄고 개발자가 트랜잭션을 직접 제어하는게 좋음
             conn.setAutoCommit(false); // 자동 커밋 기능 비활성화
@@ -250,7 +250,7 @@ public class EmployeeDAO {
             //     conn.close()가 실행되면 남은 트랜잭션 내용이 모두 commit 된다.
 
             // SQL 작성
-            String sql = "INSERT INTO EMPLOYEE VALUES(?,?,?,?,?,?,?,'S5',?,?,200,SYSDATE,NULL,'N')";
+            String sql = "INSERT INTO EMPLOYEE_COPY VALUES(?,?,?,?,?,?,?,'S5',?,?,200,SYSDATE,NULL,'N')";
             // ? 기호 <- 위치홀더 라고 한다
 
             // Statement : 커넥션 생성 - SQL 작성 - Statement 객체 생성 - SQL 수행 후 결과 반환
@@ -317,12 +317,12 @@ public class EmployeeDAO {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver"); // 드라이버 메모리
 
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
             conn.setAutoCommit(false); // 자동 커밋 비활성화
             // -> 활성화 상태일 경우 SQL이 수행 되자마자 commit이 되어버림
 
 
-            String sql = "DELETE FROM EMPLOYEE WHERE EMP_ID = ?";
+            String sql = "DELETE FROM EMPLOYEE_COPY WHERE EMP_ID = ?";
 
             pstmt = conn.prepareStatement(sql);
 
@@ -361,13 +361,13 @@ public class EmployeeDAO {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
             // 커넥션 생성
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
 
             // 자동 커밋 비활성화
             conn.setAutoCommit(false);
 
             // sql 작성 (위치홀더 포함)
-            String sql = "UPDATE EMPLOYEE SET EMAIL = ?, PHONE = ?, SALARY = ? WHERE EMP_ID = ?";
+            String sql = "UPDATE EMPLOYEE_COPY SET EMAIL = ?, PHONE = ?, SALARY = ? WHERE EMP_ID = ?";
 
             // PreparedStatement 생성
             pstmt = conn.prepareStatement(sql);
@@ -415,13 +415,13 @@ public class EmployeeDAO {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
             // 커넥션 생성
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
 
             // 자동 커밋 비활성화
             conn.setAutoCommit(false);
 
             // sql 작성
-            String sql = "UPDATE EMPLOYEE SET EMAIL = '"+emp.getEmail()+"', " +
+            String sql = "UPDATE EMPLOYEE_COPY SET EMAIL = '"+emp.getEmail()+"', " +
                     "PHONE = '"+emp.getPhone()+"', " +
                     "SALARY = "+emp.getSalary()+" WHERE EMP_ID = "+emp.getEmpId();
 
@@ -461,13 +461,13 @@ public class EmployeeDAO {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
             // 커넥션 생성
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
 
             // 자동 커밋 비활성화
             conn.setAutoCommit(false);
 
             // sql 작성
-            String sql = "UPDATE EMPLOYEE SET BONUS = ? WHERE DEPT_CODE = ?";
+            String sql = "UPDATE EMPLOYEE_COPY SET BONUS = ? WHERE DEPT_CODE = ?";
 
             // Statement 객체 생성
             pstmt = conn.prepareStatement(sql);
@@ -507,13 +507,13 @@ public class EmployeeDAO {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
             // 커넥션 생성
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","mgm","mgm1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","iss","iss1234");
 
             // 자동 커밋 비활성화
             conn.setAutoCommit(false);
 
             // sql 작성
-            String sql = "UPDATE EMPLOYEE SET BONUS = "+emp.getBonus()+" WHERE DEPT_CODE = '"+emp.getDeptCode()+"'";
+            String sql = "UPDATE EMPLOYEE_COPY SET BONUS = "+emp.getBonus()+" WHERE DEPT_CODE = '"+emp.getDeptCode()+"'";
 
             // Statement 객체 생성
             stmt = conn.createStatement();

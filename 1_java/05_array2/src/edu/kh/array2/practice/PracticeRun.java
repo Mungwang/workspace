@@ -14,10 +14,7 @@ public class PracticeRun {
 //		array2.practice6();
 //		array2.practice7();
 //		array2.practice8();
-//		array2.practice9();
-		array2.practice10();
-//		array2.practice11();
-
+		array2.practice9();
 		
 	}
 

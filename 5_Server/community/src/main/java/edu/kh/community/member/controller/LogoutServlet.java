@@ -23,9 +23,11 @@ public class LogoutServlet extends HttpServlet{
       HttpSession session = req.getSession();
       
       // 1) Session에서 회원 정보만 없앰 ( 충돌 위험이 있기 때문에 2번이 더 많이 사용됨)
-      session.removeAttribute("loginMember");
+      // session.removeAttribute("loginMember");
       
-      // 2) Session 전체를 없애고 새로운 Session 만들기   
+      // 2) Session 전체를 없애고 새로운 Session 만들기 ( 더 많이 사용되는 방법 )
+      session.invalidate(); // 세션 무효화
+      						// 현재 세션을 없앰 -> 자동으로 새로운 세션이 생성됨
       
       // 메인 페이지로 돌아가기
       // 1) forward : 로그아웃 응답 화면을 만든다 (부적절)
