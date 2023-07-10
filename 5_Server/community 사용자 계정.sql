@@ -48,3 +48,13 @@ MEMBER_PW = 'aBN5hiegXlvAovJLipPoPd5LB+xjPrAeu1tcAVg0p5MKGocvo6l825SD+ZMCOcHBFeG
 WHERE MEMBER_NO ='1';
 
 commit;
+
+UPDATE MEMBER SET
+MEMBER_PW = 'ybuT5RE3Qb/bE69MynKRp21UqUH7gwxtO8uOGrOsKqgPt95nPzymK/si9YTYCIxP0CfaqS2StvpiQ0W5UwyCVg=='
+WHERE MEMBER_NO ='2';
+
+commit;
+
+
+
+

@@ -97,7 +97,7 @@
                         <!-- 회원 정보 + 로그아웃 버튼 -->
                         <div class="my-info">
                            <div>         <!-- page > request > session > application 이여서 생략해도 자동으로 session -->
-                              <a href="#" id="nickname">${loginMember.memberNickname }</a>
+                              <a href="${contextPath}/member/myPage/info" id="nickname">${loginMember.memberNickname }</a>
                               
                               <a href="/community/member/logout" id="logout-btn">로그아웃</a>
                            </div>
