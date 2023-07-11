@@ -62,11 +62,13 @@ public class MyPageChangePwServlet extends HttpServlet {
 				// path = "내 정보 페이지 주소"
 				session.setAttribute("message", "비밀번호 변경완료!");
 				
+				// path = req.getContextPath() +"/member/myPage/info";
 				path = "info";
 				
 			} else { // 실패
 				session.setAttribute("message", "현재 비밀번호가 일치하지 않습니다!");
 				
+				// path = req.getContextPath() +"/member/myPage/changPw";
 				path = "changPw";
 			}
 			

@@ -55,6 +55,10 @@ WHERE MEMBER_NO ='2';
 
 commit;
 
+UPDATE MEMBER SET
+MEMBER_PW = 'iplxewLli7qPQF+vVHtB4loDo/E9Zw9efFh7eEh1NI+MrrMXTVqtmYEe/HBLnduhQ2VTnkV+2AkVdHiNnxR8mg=='
+WHERE MEMBER_NO ='22';
+
 -- 회원 정보 수정
 UPDATE MEMBER SET
 MEMBER_NICK = ?,
@@ -69,9 +73,12 @@ MEMBER_PW = ?
 WHERE MEMBER_NO = ?
 AND MEMBER_PW =?;
 
+-- 회원 탈퇴
+UPDATE MEMBER SET SECESSION_FL ='Y'
+WHERE MEMBER_NO= ? 
+AND MEMBER_PW =?;
 
-
-
+commit;
 
 
 
