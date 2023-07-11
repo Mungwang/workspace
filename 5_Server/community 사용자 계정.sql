@@ -55,6 +55,36 @@ WHERE MEMBER_NO ='2';
 
 commit;
 
+-- 회원 정보 수정
+UPDATE MEMBER SET
+MEMBER_NICK = ?,
+MEMBER_TEL = ?,
+MEMBER_ADDR = ?
+
+WHERE MEMBER_NO = ?;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

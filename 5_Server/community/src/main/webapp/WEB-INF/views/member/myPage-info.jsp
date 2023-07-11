@@ -39,8 +39,13 @@
 
                 <h1 class="myPage-title">내정보</h1>
                 <span class="myPage-explanation">원하는 회원 정보를 수정할 수 있습니다.</span>
-
-                <form action="#" method="post" name="myPage-form">
+                <!-- 
+                    http://localhost:8080/community/member/myPage/info (GET)
+                    http://localhost:8080/community/member/myPage/info (POST) 
+                    
+                    같은곳을 이동하지만 겹치는거 다지우고 info 적어주면 메소드 방식만 달라짐
+                 -->
+                <form action="info" method="post" name="myPage-form">
                     
                     <div class="myPage-row">
                         <label>닉네임</label>
