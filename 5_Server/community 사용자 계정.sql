@@ -63,6 +63,12 @@ MEMBER_ADDR = ?
 
 WHERE MEMBER_NO = ?;
 
+-- 비밀번호 수정
+UPDATE MEMBER SET
+MEMBER_PW = ?
+WHERE MEMBER_NO = ?
+AND MEMBER_PW =?;
+
 
 
 

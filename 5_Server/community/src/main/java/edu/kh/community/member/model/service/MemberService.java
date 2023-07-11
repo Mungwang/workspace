@@ -68,4 +68,25 @@ public class MemberService {
 		return result;
 	}
 
+	/** 비밀번호 변경 Service
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int changePw(String currentPw, String newPw, int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+
+		int result = dao.changePw(conn, currentPw,newPw,memberNo);
+
+		if (result > 0) commit(conn);
+		else rollback(conn);
+
+		close(conn);
+
+		return result;
+	}
+
 }

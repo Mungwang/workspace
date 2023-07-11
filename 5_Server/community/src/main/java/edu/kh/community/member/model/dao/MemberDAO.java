@@ -144,4 +144,41 @@ public class MemberDAO {
 		return result;
 	}
 
+
+	/** 비밀번호변경 DAO
+	 * @param conn
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int changePw(Connection conn, String currentPw, String newPw, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		
+		try {
+			String sql = prop.getProperty("changePw");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, newPw );
+			pstmt.setInt(2, memberNo);
+			pstmt.setString(3, currentPw);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			
+			// try - finally 왜 사용하는가?
+			// 	-> try 구문에서 JDBC 관련 예외가발생하더라도 사용중이던 JDBC 객체 자원을 무조건 반환 
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
 }
