@@ -70,8 +70,35 @@ function changePwValidate(){
     if(newPw2.value.trim()==""){
         return printAlert(newPw2,"새 비밀번호 확인을 입력해주세요");
     }
-    if(newPw1!==newPw2){
+    if(newPw1.value!=newPw2.value){
         alert("새 비밀번호가 일치하지않습니다")
         return false;
     }
+    
+    return true;
 }    
+//-----------------------------------------------------------------//
+/* 회원탈퇴 */
+
+function secessionValidate() {
+
+    const memberPw = document.getElementById("memberPw");
+    const agree = document.getElementById("agree");
+
+    if(memberPw.value.trim() == "") {
+        return printAlert(memberPw, "비밀번호를 입력해주세요.");
+    }
+    if(!agree.checked) {
+        return printAlert(agree, "약관 동의 후 탈퇴 버튼을 클릭해주세요");
+    }
+
+    // 정말 탈퇴할지 확인
+    // - window.confirm("내용") : 대화 상자에 확인/취소 생성
+    //      -> 확인 클릭시 true / 취소 클리식 false
+
+    if(!confirm("정말 탈퇴 하시겠습니까?")){ // 취소를 눌렀을 때
+        return false
+    } 
+    return true;
+   
+}

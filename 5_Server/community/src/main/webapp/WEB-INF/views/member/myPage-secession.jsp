@@ -36,11 +36,11 @@
                     
                     같은곳을 이동하지만 겹치는거 다지우고 info 적어주면 메소드 방식만 달라짐
                  -->
-                <form action="secession" method="post" name="myPage-form">
+                <form action="secession" method="post" onsubmit="return secessionValidate()" name="myPage-form">
                     
                     <div class="myPage-row">
                         <label>비밀번호</label>
-                        <input type="password" name="memberPw" maxlength="30">
+                        <input type="password" name="memberPw" id="memberPw" maxlength="30">
                     </div>
                     
                     <div class="myPage-row info-title">
@@ -87,6 +87,7 @@
     </main>
         
        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+       <script src="${contextPath}/resources/js/member/myPage.js"></script>
     
 </body>
 </html>
