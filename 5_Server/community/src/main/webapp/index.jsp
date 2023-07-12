@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KH 커뮤니티</title>
     <link rel="stylesheet" href="resources/css/main-style.css">
+    
 </head>
 <body>
 
@@ -40,13 +41,13 @@
                   <%-- ★★★ choose 내부에는 jsp 주석만 사용가능 ★★★ --%>
                   <c:when test="${ empty sessionScope.loginMember}">
                   
-                       <form action="member/login" method="post" name="login-form" >
+                       <form action="member/login" method="post" name="login-form" onsubmit="return loginValidate()" >
              
                          <!-- 아이디/비밀번호/로그인버튼 영역 -->
                          <fieldset id="id-pw-area">
                              <section>
                                  <input type="text" name="inputEmail" placeholder="아이디(이메일)" value="${cookie.saveId.value}">
-                                                                                                        <%-- 현재 페이지 쿠키 중 "saveId"의 내용을 출력 --%>
+                                                                                 <%-- 현재 페이지 쿠키 중 "saveId"의 내용을 출력 --%>
                                  <input type="password" name="inputPw" placeholder="비밀번호">
                              </section>
              
@@ -79,7 +80,7 @@
       
       
                          <label>
-                             <input type="checkbox" name="saveId" ${chk}>아이디 저장
+                             <input type="checkbox" name="saveId" id="saveId" ${chk} >아이디 저장
                          </label>
                       </form>
             
@@ -120,6 +121,9 @@
         
         <!-- footer include  -->
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+        
+        <!-- main.js 연결 -->
+        <script src="${contextPath}/resources/js/main.js"></script>
         
 </body>
 </html>
