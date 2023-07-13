@@ -6,33 +6,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KH 커뮤니티</title>
-    <link rel="stylesheet" href="../resources/css/main-style.css">
-    <link rel="stylesheet" href="../resources/css/signUp-style.css">
+    <link rel="stylesheet" href="${ contextPath }/resources/css/main-style.css">
+    <link rel="stylesheet" href="${ contextPath }/resources/css/signUp-style.css">
     <script src="https://kit.fontawesome.com/51fc103959.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <main>
-    
-    	<!-- hearder include-->
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
         <!-- 회원가입 -->
         <section class="signUp-content">
-        	
-        	<!-- 회원가입 화면 전환 주소(GET)와 같은 주소로 
-        		 실제 회원가입을 요청(POST)
-        		  -> 요청 주소가 같아도 데이터 전달 방식이 다르면 중복 허용
-        	-->
-        	
-        	<!-- 절대경로 : /community/member/signUp  
-        		
-        		 현재주소 : /community/member/signUp
-        		 상대경로 : signUp
-        		 
-        		 
-        	-->
-            <form action="signUp" method="post" name="signUp-form">
+         
+            <!-- 회원가입 화면 전환 주소(GET)와 같은 주소로
+                    실제 회원가입을 요청(POST)
+                        -> 요청 주소가 같아도 데이터 전달 방식이 다르면 중복 허용
+            -->
+
+            <!--
+                절대경로 : /community/member/signUp
+                현재주소 : /community/member/signUp
+                상대경로 : signUp
+            -->
+
+            <form action="#" method="post" name="signUp-form" onsubmit="return signUpValidate()">
                 <label for="memberEmail">
                     <span class="required">*</span> 아이디(이메일)
                 </label>
@@ -54,7 +51,7 @@
                 </label>
                 
                 <div class="signUp-input-area">
-                    <input type="text" id="emailCheck" name="emailCheck" placeholder="인증번호입력" maxlength="6" autocomplete="off">
+                    <input type="text" id="emailCheck" placeholder="인증번호입력" maxlength="6" autocomplete="off">
                     
                     <button type="button">인증하기</button>
 
@@ -77,7 +74,7 @@
             
                 </div>
 
-                <span class="signUp-message" id="PwMessage">영어,숫자,특수문자(!,@,#,-,_) 6~30글자 사이로 작성해주세요.</span>
+                <span class="signUp-message" id="pwMessage">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로 작성해주세요.</span>
 
                 <label for="memberNickname">
                     <span class="required">*</span> 닉네임
@@ -85,7 +82,6 @@
                 
                 <div class="signUp-input-area">
                     <input type="text" id="memberNickname" name="memberNickname" placeholder="닉네임" maxlength="10">
-
                 </div>
 
                 <span class="signUp-message" id="nicknameMessage">영어/숫자/한글 2~10글자 사이로 작성해주세요.</span>
@@ -96,39 +92,40 @@
                 
                 <div class="signUp-input-area">
                     <input type="text" id="memberTel" name="memberTel" placeholder="(- 없이 숫자만 입력)" maxlength="11">
-
                 </div>
 
-                <span class="signUp-message" id="telMessage">전화번호를 입력해주세요.(- 제외)</span>
+                <span class="signUp-message error" id="telMessage">전화번호를 입력해주세요.(- 제외)</span>
 
                 <label for="memberAddress">
-                    주소
+                    <span class="required">*</span> 주소
                 </label>
                 
                 <div class="signUp-input-area">
                     <input type="text" id="memberAddress" name="memberAddress" placeholder="우편번호" maxlength="6">
-
                     <button type="button">검색</button>
                 </div>
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" placeholder="도로명주소" >
+                    <input type="text" name="memberAddress" placeholder="도로명주소">
+                </div>
+                <div class="signUp-input-area">
+                    <input type="text" name="memberAddress" placeholder="상세주소">
                 </div>
 
-                <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" placeholder="상세주소" >
-                </div>
-                
                 <button type="submit" id="signUp-btn">가입하기</button>
+                
             </form>
         </section>
-
-    </main>
+        </main>
         
-         <!-- footer include  -->
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+        
+        <!-- jQuery 라이브러리 추가(CDN) ** 자바스크립트보다 위에 jQuery가 있어야한다-->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
         <!-- signUp.js 연결 -->
         <script src="${contextPath}/resources/js/member/signUp.js"></script>
+
+
 </body>
 </html>

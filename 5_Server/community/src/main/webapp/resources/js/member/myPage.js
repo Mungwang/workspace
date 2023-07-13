@@ -71,7 +71,7 @@ function changePwValidate(){
         return printAlert(newPw2,"새 비밀번호 확인을 입력해주세요");
     }
     if(newPw1.value!=newPw2.value){
-        alert("새 비밀번호가 일치하지않습니다")
+        alert("새 비밀번호가 일치하지않습니다");
         return false;
     }
     
