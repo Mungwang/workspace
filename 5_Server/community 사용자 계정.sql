@@ -80,6 +80,10 @@ AND MEMBER_PW =?;
 
 commit;
 
+-- 이메일 중복 검사
+SELECT COUNT(*) FROM MEMBER
+WHERE MEMBER_EMAIL = 'user01@kh.or.kr'
+AND SECESSION_FL ='N';
 
 
 
