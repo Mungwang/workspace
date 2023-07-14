@@ -138,6 +138,9 @@
         <!-- footer include  -->
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
         
+        <!-- jQury 연결 -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
         <!-- main.js 연결 -->
         <script src="${contextPath}/resources/js/main.js"></script>
         

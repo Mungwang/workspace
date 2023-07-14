@@ -62,8 +62,6 @@ document.getElementById("saveId").addEventListener("change",function(){
             this.checked = false; // 체크해제
         }
     }
-
-
 })
 
 
@@ -72,8 +70,48 @@ document.getElementById("select1").addEventListener("click",function(){
 
     const input = document.getElementById("in1");
     const div = document.getElementById("result1");
+
+    $.ajax({
+        // /community/member/selectOne
+
+        // /community/index.jsp
+
+        url : "member/selectOne",
+        data : {"memberEmail" : input.value},
+        type : "POST",
+
+        success : function(member){
+            console.log(member); // JS 객체 형태 문자열
+
+            // JSON.parse(문자열) : 문자열 -> JS 객체로 변환
+            console.log(JSON.parse(member));
+
+            console.log(JSON.parse(member).memberNickname);
+
     
 
+            if(member !=null){ // 회원 정보 존재 O
 
+
+            }else{ // 회원 정보 존재 X
+
+            }
+
+
+        },
+        error : function(request, status, error){
+
+            console.log("AJAX 에러발생");
+
+            console.log("상태코드 : " + request.status); // 404,500
+
+            console.log(request.responseText); // 에러 메세지
+
+            console.log(error); // 에러 객체 출력
+
+
+        }
+
+    });
 
 });

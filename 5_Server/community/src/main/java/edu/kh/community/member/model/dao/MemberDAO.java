@@ -237,8 +237,8 @@ public class MemberDAO {
 			}
 			
 		} finally {
-			close(pstmt);
 			close(rs);
+			close(pstmt);
 		}
 		
 		return result;
@@ -277,6 +277,45 @@ public class MemberDAO {
 		}
 		
 		return result;
+	}
+
+
+	/** 이메일이 일치하는 회원정보조회 DAO
+	 * @param conn
+	 * @param memberEmail
+	 * @return
+	 * @throws Exception
+	 */
+	public Member selectOne(Connection conn, String memberEmail) throws Exception {
+		Member member = null; // 결과 저장용 변수
+		
+		try {
+			// SQL 얻어오기
+			String sql = prop.getProperty("selectOne");
+			
+			// PreparedStatement 생성 및 SQL 적재
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberEmail);
+			
+			// SQL 수행
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member();
+				
+				member.setMemberEmail( 		rs.getString(1));
+				member.setMemberNickname(   rs.getString(2));
+				member.setMemberTel(		rs.getString(3));
+				member.setMemberAddress(	rs.getString(4));
+				member.setEnrollDate(		rs.getString(5));
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return member;
 	}
 
 }

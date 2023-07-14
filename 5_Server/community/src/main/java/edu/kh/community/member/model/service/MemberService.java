@@ -142,4 +142,21 @@ public class MemberService {
 		return result;
 	}
 
+
+	/** 회원 정보 조회 Service
+	 * @param memberEmail
+	 * @return
+	 * @throws Exception
+	 */
+	public Member selectOne(String memberEmail) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		Member member =dao.selectOne(conn,memberEmail);
+		
+		close(conn);
+		
+		return member;
+	}
+
 }
