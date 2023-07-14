@@ -33,21 +33,46 @@
 
                이메일 : <input type="text" id="in1">
                <button id="select1">조회</button>
-               <div id="result1" style="height: 150px;;">
+               <div id="result1" style="height: 150px;;"></div>
+            
+               <hr>
+               <h3>회원 목록 조회</h3>
 
-               <!-- 이메일이 일치하는 회원이 있을 경우 -->
-               <ul>
-                  <li>이메일 : user01@kh.or.kr</li>
-                  <li>닉네임 : 유저일</li>
-                  <li>전화번호 : 01012341234</li>
-                  <li>주소 : 서울시 강남구 테헤란로</li>
-                  <li>가입일 : 2023년 7월 14일</li>
-               </ul>
+                <p>일정 시간 마다 비동기로 회원 목록(회원 번호, 이메일, 닉네임) 조회</p>
+
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>회원 번호</th>
+                            <th>이메일</th>
+                            <th>닉네임</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id="memberList">
+
+                        <tr>
+                            <td>1</td>
+                            <td>user01@kh.or.kr</td>
+                            <td>유저일</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>user02@kh.or.kr</td>
+                            <td>유저이</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>user03@kh.or.kr</td>
+                            <td>유저삼</td>
+                        </tr>
+
+                    </tbody>
+                </table>
                
-               <!-- 이메일이 일치하는 회원이 없을 경우 -->
-               <h4 style="color: red;">일치하는 회원이 없습니다.</h4>
-
-               </div>
             </section>
             <section class="content-2">
             

@@ -3,6 +3,7 @@ package edu.kh.community.member.model.service;
 import static edu.kh.community.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.List;
 
 import edu.kh.community.member.model.dao.MemberDAO;
 import edu.kh.community.member.model.vo.Member;
@@ -152,11 +153,27 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		
-		Member member =dao.selectOne(conn,memberEmail);
+		Member member =dao.selectOne(conn, memberEmail);
 		
 		close(conn);
 		
 		return member;
+	}
+
+	/** 회원 전체 목록조회 Service
+	 * @return memberInfo
+	 * @throws Exception
+	 */
+	public List<Member> selectAll() throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Member> memberInfo = dao.selectAll(conn);
+		
+		close(conn);
+		
+		return memberInfo;
+				
 	}
 
 }

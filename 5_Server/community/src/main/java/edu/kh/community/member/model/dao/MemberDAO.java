@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import edu.kh.community.member.model.vo.Member;
@@ -316,6 +318,44 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		return member;
+	}
+
+
+	/** 회원 목록 조회 DAO
+	 * @param conn
+	 * @return memberInfo
+	 * @throws Exception
+	 */
+	public List<Member> selectAll(Connection conn) throws Exception {
+		
+		List<Member> memberInfo = new ArrayList<Member>();
+		
+		try {
+			String sql = prop.getProperty("selectAll");
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				Member mem = new Member();
+				
+				mem.setMemberNo(rs.getInt(1));
+				mem.setMemberEmail(rs.getString(2));
+				mem.setMemberNickname(rs.getString(3));
+				
+				memberInfo.add(mem); // 리스트에 추가
+				
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
+			
+		}
+		
+		
+		return memberInfo;
 	}
 
 }

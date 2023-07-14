@@ -79,22 +79,55 @@ document.getElementById("select1").addEventListener("click",function(){
         url : "member/selectOne",
         data : {"memberEmail" : input.value},
         type : "POST",
-
+        dataType : "JSON", // dataType : 응답데이터 형식을 지정
+                           //  -> JSON으로 지정시 자동으로 JS객체로 전환
         success : function(member){
             console.log(member); // JS 객체 형태 문자열
 
             // JSON.parse(문자열) : 문자열 -> JS 객체로 변환
-            console.log(JSON.parse(member));
+            // console.log(JSON.parse(member));
 
-            console.log(JSON.parse(member).memberNickname);
-
-    
+            div.innerText = ""
 
             if(member !=null){ // 회원 정보 존재 O
 
+                // 1) div에 작성된 내용 모두 삭제
+
+                // 2) ul 요소 생성
+                const ul = document.createElement("ul");
+
+                // 3) li 요소 생성 *5 + 내용추가
+                const li1 = document.createElement("li");
+                li1.innerText="이메일 : "+ member.memberEmail;
+
+                const li2 = document.createElement("li");
+                li2.innerText="닉네임 : "+ member.memberNickname;
+
+                const li3 = document.createElement("li");
+                li3.innerText="전화번호 : "+ member.memberTel;
+
+                const li4 = document.createElement("li");
+                li4.innerText="주소 : "+ member.memberAddress;
+
+                const li5 = document.createElement("li");
+                li5.innerText="가입일 : "+ member.enrollDate;
+
+                // 4) ul에 li를 순서대로 추가
+
+                ul.append(li1,li2,li3,li4,li5);
+
+                // 5) div 에 ul 추가
+                div.append(ul);
 
             }else{ // 회원 정보 존재 X
-
+                // 1) h4 요소 생성
+                const h4 = document.createElement("h4");
+                // 2) 내용 추가
+                h4.innerText="일치하는 회원이 없습니다";
+                // 3) 색 추가
+                h4.style.color= "red";
+                // 4) div 에 추가
+                div.append(h4);
             }
 
 
@@ -115,3 +148,41 @@ document.getElementById("select1").addEventListener("click",function(){
     });
 
 });
+
+
+//-----------------------------------------------------------------------------
+
+/* 일정 시간 마다 회원 목록 조회 */
+
+function selectAll(){ // 회원 전체 조회 함수
+
+    // ajax 코드
+    $.ajax({
+        url : "member/selectAll",
+        dataType : "json", // 응답 데이터의 형식을 "json"으로 지정
+                           // -> 자동으로 JS 객체로 변환됨
+        success : function(memberInfo){
+            console.log(memberInfo);
+
+        },
+        error : function(){
+            console.log("에러 발생");
+        }
+        
+
+
+
+    });
+
+}
+
+// 즉실 실행 함수
+(function(){
+
+    selectAll(); // 함수 호출 -> 회원 목록을 먼저 조회
+
+    // window.setInterval(함수, 딜레이(ms))
+    window.setInterval(selectAll,10000); // 10초
+    // 함수 이름만 작성
+
+})();
