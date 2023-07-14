@@ -126,4 +126,20 @@ public class MemberService {
 		return result;
 	}
 
+	/** 닉네임 중복 검사 Service
+	 * @param memberNickname
+	 * @return
+	 * @throws Exception
+	 */
+	public int NicknameDupCheck(String memberNickname) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.NicknameDupCheck(conn,memberNickname);
+		
+		close(conn);
+		
+		return result;
+	}
+
 }

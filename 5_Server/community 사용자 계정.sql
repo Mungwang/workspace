@@ -85,7 +85,11 @@ SELECT COUNT(*) FROM MEMBER
 WHERE MEMBER_EMAIL = 'user01@kh.or.kr'
 AND SECESSION_FL ='N';
 
-
+-- 닉네임 중복 검사
+-- 중복 되면 1 , 아니면 0
+SELECT COUNT(*) FROM MEMBER
+WHERE MEMBER_NICK = ?
+AND SECESSION_FL = 'N';
 
 
 

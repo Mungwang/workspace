@@ -244,4 +244,39 @@ public class MemberDAO {
 		return result;
 	}
 
+
+	/** 닉네임 중복검사 DAO
+	 * @param conn
+	 * @param memberNickname
+	 * @return result
+	 * @throws Exception
+	 */
+	public int NicknameDupCheck(Connection conn, String memberNickname) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("NicknameDupCheck");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberNickname);
+			
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result=rs.getInt(1);
+			}
+			
+		} finally {
+			
+			close(rs);
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
 }

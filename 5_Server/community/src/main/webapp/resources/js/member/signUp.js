@@ -81,7 +81,7 @@ memberEmail.addEventListener("input", function(){
             // data속성 : 비동기 통신 시 서버로 전달할 값을 작성(JS 객체 형식)
             // -> 비동기 통신 시 input에 입력된 값을 "memberEmail" 이라는 key 값(파라미터) 전달
 
-            type : "GET", // 데이터 전달 방식 type
+            type : "GET", // 데이터 전달 방식 type /안적으면 get이 기본값/
 
             success : function(result){
 
@@ -139,13 +139,35 @@ memberNickname.addEventListener("input", function(){
     const regExp = /^[a-zA-Z0-9가-힣]{2,10}$/; 
 
     if(regExp.test(memberNickname.value)){ // 유효한 경우
-        nicknameMessage.innerText = "유효한 닉네임 형식입니다.";
-        nicknameMessage.classList.add("confirm");
-        nicknameMessage.classList.remove("error");
-        checkObj.memberNickname = true; // 유효 O 기록
-
+        
         // ************* 닉네임 중복 검사(ajax) 진행 예정 *************
+        $.ajax({
+            
+            url : "nicknameDupCheck", // 필수 작성 속성
+            data : { "memberNickname" : memberNickname.value }, // 서버로 전달할 값(파라미터)
+            type : "GET", // 데이터 전달 방식(기본값 GET)
 
+            success : function(rs){  // 비동기 통신 성공 시(에러 발생 X)
+
+                if(rs == 0){ // 중복 x
+
+                    nicknameMessage.innerText = "사용 가능한 닉네임입니다.";
+                    nicknameMessage.classList.add("confirm");
+                    nicknameMessage.classList.remove("error");
+                    checkObj.memberNickname = true; // 유효 O 기록
+
+                }else{ // 중복 O
+
+                    nicknameMessage.innerText = "이미 사용중인 닉네임입니다.";
+                    nicknameMessage.classList.add("error");
+                    nicknameMessage.classList.remove("confirm");
+                    checkObj.memberNickname = false; // 유효 X 기록
+                }
+            },
+            error : function(){ // 비동기 통신 중 에러가 발생한 경우
+                console.log("에러 발생");
+            }
+        });
     } else{
         nicknameMessage.innerText = "닉네임 형식이 유효하지 않습니다.";
         nicknameMessage.classList.add("error");
