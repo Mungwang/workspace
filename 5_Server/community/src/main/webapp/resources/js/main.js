@@ -162,7 +162,36 @@ function selectAll(){ // 회원 전체 조회 함수
         dataType : "json", // 응답 데이터의 형식을 "json"으로 지정
                            // -> 자동으로 JS 객체로 변환됨
         success : function(memberInfo){
-            console.log(memberInfo);
+            // console.log(memberInfo);
+
+            // 1) #memberList 내용 삭제
+            const memberList = document.getElementById("memberList");
+
+            memberList.innerText = "";
+
+            // 2) list를 for문을 이용해서 반복 접근
+
+            for(let item of memberInfo){
+                // item == 회원 1명의 정보가 담긴 JS객체
+
+                // 3) tr요소 생성
+                const tr = document.createElement("tr");
+
+                // 4) td 요소 생성 + 내용추가 *3
+
+                const td1= document.createElement("td");
+                td1.innerText = item.memberNo;
+
+                const td2= document.createElement("td");
+                td2.innerText = item.memberEmail;
+
+                const td3= document.createElement("td");
+                td3.innerText = item.memberNickname;
+
+                tr.append(td1,td2,td3);
+
+                memberList.append(tr);
+            }
 
         },
         error : function(){
@@ -183,6 +212,10 @@ function selectAll(){ // 회원 전체 조회 함수
 
     // window.setInterval(함수, 딜레이(ms))
     window.setInterval(selectAll,10000); // 10초
-    // 함수 이름만 작성
+    // 함수 이름만 작성 -> 함수 코드가 대입
+    // -> 10초마다 selectAll 함수 수행
+
+    // setInterval()은 지연 -> 수행 -> 지연 -> 수행 ... 반복
+    // --> 처음에 함수가 수행되지 않아서 공백인 상태가 있음
 
 })();

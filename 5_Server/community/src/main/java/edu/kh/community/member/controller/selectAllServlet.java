@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.jdt.internal.compiler.ast.ArrayAllocationExpression;
-
 import com.google.gson.Gson;
 
 import edu.kh.community.member.model.service.MemberService;
@@ -29,7 +27,6 @@ public class selectAllServlet extends HttpServlet{
 		MemberService service = new MemberService();
 		
 		List<Member> memberInfo = service.selectAll();
-				 
 		
 		// Gson 라이브러리를 이용해서 JSON 형태로 변환 후 응답
 		new Gson().toJson(memberInfo,resp.getWriter());
