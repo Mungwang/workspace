@@ -52,24 +52,7 @@
 
                     <tbody id="memberList">
 
-                        <tr>
-                            <td>1</td>
-                            <td>user01@kh.or.kr</td>
-                            <td>유저일</td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>user02@kh.or.kr</td>
-                            <td>유저이</td>
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>user03@kh.or.kr</td>
-                            <td>유저삼</td>
-                        </tr>
-
+						<!-- 로그인하면 chang이벤트가 null값이떠서 안나옴 수정하던지 하면됌 -->
                     </tbody>
                 </table>
                
