@@ -1,55 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
-    <link rel="stylesheet" href="../resources/css/boardList-style.css">
-    <link rel="stylesheet" href="../resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/boardList-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
     <script src="https://kit.fontawesome.com/51fc103959.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
-        <header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-            <!-- 클릭 시 메인페이지로 이동하는 로고 -->
-            <section > 
-                <a href="#">
-                    <img src="../resources/images/logo.jpg" id="home-logo">
-                </a>
-            </section>
-
-            <!-- header의 두번째 자식 div -->
-            <section>
-                <article class="search-area">
-                    
-                    <!--form 내부 input태그 값을 서버 또는 페이지로 전달  -->
-                    <form action="#" name="search-form">
-                        
-                        <!-- fieldeset : from 내부에서 input을 종류별로 묶는 용도로 많이사용 -->
-                        <fieldset>
-                            <input type="search" id="query" name="query" 
-                            placeholder="검색어를 입력해주세요." autocomplete="off">
-
-                            <!-- 검색 버튼 -->
-                            <button type="submit" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
-                        </fieldset>
-
-                    </form>
-                </article>
-            </section>
-            <section></section>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="#">공지사항</a></li>
-                <li><a href="#">자유 게시판</a></li>
-                <li><a href="#">질문 게시판</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">1:1문의</a></li>
-            </ul>
-        </nav>
 
         <section class="board-list">
 
@@ -182,7 +147,7 @@
 
                     <li><a class="current">1</a></li>
 
-                    <li><a href="#">2</a></li>
+                    <li><a href="${contextPath}/board/list?type=1&cp=2">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
@@ -213,19 +178,8 @@
 
         </section>
 
-        <footer>
-            <p>Copyright &copy; KH Information Educational Institue M-Class</p>
-            
-            <article>
-                <a href="#">프로젝트 소개</a>
-                <span>|</span>
-                <a href="#">이용약관</a>
-                <span>|</span>
-                <a href="#">개인정보처리방침</a>
-                <span>|</span>
-                <a href="#">고객센터</a>   
-            </article>
-            </footer>
     </main>
+
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

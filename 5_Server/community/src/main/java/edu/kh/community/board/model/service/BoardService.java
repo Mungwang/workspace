@@ -1,0 +1,10 @@
+package edu.kh.community.board.model.service;
+
+import static edu.kh.community.common.JDBCTemplate.*;
+
+import edu.kh.community.board.model.dao.BoardDAO;
+
+public class BoardService {
+
+	private BoardDAO dao = new BoardDAO();
+}
