@@ -41,6 +41,10 @@ public class BoardListServlet extends HttpServlet {
 			// 게시판 이름, 페이지네이션 객체, 게시글 리스트 한번에 반화하는 Service 호출
 			Map<String,Object> map = service.selectBoardList(type, cp);
 			
+			// request 범위로 map을 세팅
+			req.setAttribute("map", map);
+			
+			
 			String path = "/WEB-INF/views/board/boardList.jsp";
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher(path);

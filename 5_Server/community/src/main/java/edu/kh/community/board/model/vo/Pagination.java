@@ -21,6 +21,8 @@ public class Pagination {
 	public Pagination(int currentPage, int listCount) {
 		this.currentPage = currentPage;
 		this.listCount = listCount;
+		
+		calculatePagination(); // 계산 메소드 호출
 	}
 	
 	
@@ -32,6 +34,8 @@ public class Pagination {
 
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
+		
+		calculatePagination();
 	}
 
 	public int getListCount() {
@@ -40,6 +44,8 @@ public class Pagination {
 
 	public void setListCount(int listCount) {
 		this.listCount = listCount;
+		
+		calculatePagination();
 	}
 
 	public int getLimit() {
@@ -48,14 +54,19 @@ public class Pagination {
 
 	public void setLimit(int limit) {
 		this.limit = limit;
+		
+		calculatePagination();
 	}
 
 	public int getPageSize() {
 		return pageSize;
+		
 	}
 
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
+		
+		calculatePagination();
 	}
 
 	public int getMaxPage() {
@@ -66,12 +77,12 @@ public class Pagination {
 		this.maxPage = maxPage;
 	}
 
-	public int getStrartPage() {
-		return strartPage;
+	public int getStartPage() {
+		return startPage;
 	}
 
-	public void setStrartPage(int strartPage) {
-		this.strartPage = strartPage;
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
 	}
 
 	public int getEndPage() {
@@ -101,7 +112,7 @@ public class Pagination {
 	@Override
 	public String toString() {
 		return "Pagination [currentPage=" + currentPage + ", listCount=" + listCount + ", limit=" + limit
-				+ ", pageSize=" + pageSize + ", maxPage=" + maxPage + ", strartPage=" + strartPage + ", endPage="
+				+ ", pageSize=" + pageSize + ", maxPage=" + maxPage + ", startPage=" + startPage + ", endPage="
 				+ endPage + ", prevPage=" + prevPage + ", nextPage=" + nextPage + "]";
 	}
 	
@@ -139,6 +150,37 @@ public class Pagination {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
+		
+		// * prevPage(<) : 목록 하단에 노출된 번호의 이전 목록 끝 번호
+		// * nextPage(>) : 목록 하단에 노출된 번호의 다음 목록 시작 번호
+		
+		// 현재 페이지가 1~10일 경우
+		// < :  1페이지
+		// > : 11페이지
+		
+		// 현재 페이지가 11~20일 경우
+		// < : 10페이지
+		// > : 21페이지
+		
+		// 현재 페이지가 41~50일 경우 (maxPage가 50)
+		// < : 40
+		// > : 50
+		
+		if(currentPage <= pageSize) {
+			prevPage = 1;
+		}else {
+			prevPage = startPage -1;
+		}
+		
+		if(endPage == maxPage) {
+			nextPage = maxPage;
+		}else {
+			nextPage = endPage +1;
+		}
+		
+		
+		
+		
 		
 		
 		
