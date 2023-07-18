@@ -24,8 +24,9 @@ public class BoardService {
 		// 1. 게시판 이름 조회 DAO호출
 		String boardName = dao.selectBoardName(conn,type);
 		
-		System.out.println(boardName);
 		// 2-1. 특정 게시판 전체 게시글 수 조회 DAO 호출
+		int listCount = dao.getListCount(conn,type);
+		System.out.println(listCount);
 		
 		// 2-2. 전체 게시글 수 + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
 		
