@@ -227,7 +227,6 @@ SELECT * FROM(
     ) A
 )
 WHERE RNUM BETWEEN 1 AND 10;
-
 -- 게시판 이미지 테이블 생성
 CREATE TABLE BOARD_IMG(
     IMG_NO NUMBER PRIMARY KEY,
@@ -254,15 +253,31 @@ INSERT INTO BOARD_IMG VALUES(
     SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample2.jpg', 'cat2.jpg',1,500
 );
 INSERT INTO BOARD_IMG VALUES(
-    SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample3.jpg', 'cat3.jpg',3,500
+    SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample3.jpg', 'cat3.jpg',2,500
 );
 INSERT INTO BOARD_IMG VALUES(
-    SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample4.jpg', 'cat4.jpg',4,500
+    SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample4.jpg', 'cat4.jpg',3,500
 );
 INSERT INTO BOARD_IMG VALUES(
-    SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample5.jpg', 'cat5.jpg',5,500
+    SEQ_IMG_NO.NEXTVAL,'/resources/images/board/sample5.jpg', 'cat5.jpg',4,500
 );
 
 COMMIT;
+
+-- 게시글 상세 조회
+SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, 
+    TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
+    TO_CHAR(UPDATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DT,
+    READ_COUNT, MEMBER_NICK, PROFILE_IMG, MEMBER_NO, BOARD_NM
+FROM BOARD
+JOIN MEMBER USING(MEMBER_NO)
+JOIN BOARD_TYPE USING(BOARD_CD)
+WHERE BOARD_NO = 500
+AND BOARD_ST = 'N';
+
+-- 특정 게시글에 첨부된 이미지 목록 조회
+SELECT * FROM BOARD_IMG
+WHERE BOARD_NO =500
+ORDER BY IMG_LEVEL;
 
 
