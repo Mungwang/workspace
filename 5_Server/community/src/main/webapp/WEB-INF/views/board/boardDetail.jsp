@@ -71,7 +71,7 @@
                 <div class="img-box">
                     <div class="boardImg thumbnail">
                         <img src="${contextPath}${thumbnail.imageReName}">
-                        <a href="#">다운로드</a>
+                        <a href="${contextPath}${thumbnail.imageReName}" download="${thumbnail.imageOriginal}">다운로드</a>
                     </div>
                 </div>
 
@@ -84,22 +84,27 @@
 
             <c:if test="${!empty thumbnail}"> <!-- 썸네일 o -->
                 <c:set var="start" value="1"/>
-            </c:if>        
-
-            <!-- 업로드 이미지 영역 -->
-            <h5>업로드 이미지</h5>
-            <div class="img-box">
-
-                <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList)-1}">
-
-                    <div class="boardImg">
-                        <img src="${contextPath}${detail.imageList[i].imageReName}">
-                        <a href="#">다운로드</a>
-                    </div>
-                </c:forEach>
+            </c:if>
+            
+            <!-- 업로드 이미지가 있는경우 -->
+            <c:if test="${fn:length(detail.imageList) > start}">
                 
-            </div>
+                <!-- 업로드 이미지 영역 -->
+                <h5>업로드 이미지</h5>
+                <div class="img-box">
+    
+                    <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList)-1}">
+    
+                        <div class="boardImg">
+                            <img src="${contextPath}${detail.imageList[i].imageReName}">
+                            <a href="${contextPath}${detail.imageList[i].imageReName}" download="${detail.imageList[i].imageOriginal}">다운로드</a>
+                        </div>
+                    </c:forEach>
+                    
+                </div>
+            </c:if>
 
+            
             <!-- 내용 -->
             <div class="board-content">
                 내용입니다<br>
@@ -107,13 +112,19 @@
                 내용입니다<br>
                 내용입니다<br>
                 내용입니다<br>
-                내용입니다<br>
             </div>
-
+            ${loginMember.memberNo}
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
-                <button id="updateBtn">수정</button>
-                <button id="deleteBtn">삭제</button>
+
+                <c:if test="${loginMember.memberNo == detail.memberNo}">
+
+                    <button id="updateBtn">수정</button>
+                    <button id="deleteBtn">삭제</button>
+
+                </c:if>
+
+
                 <button id="goTolistBtn">목록으로</button>
             </div>
 

@@ -20,7 +20,6 @@ public class BoardDetailServlet extends HttpServlet{
 		
 		// 파라미터 중 게시글 번호(no) 얻어오기
 		try {
-			
 			int boardNo = Integer.parseInt(req.getParameter("no"));
 			
 			BoardService service = new BoardService();
