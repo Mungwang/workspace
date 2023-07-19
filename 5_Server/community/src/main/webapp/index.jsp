@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KH 커뮤니티</title>
     <link rel="stylesheet" href="resources/css/main-style.css">
-    
+    <script src="https://kit.fontawesome.com/51fc103959.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
