@@ -56,21 +56,34 @@ function selectReplyList(){
                 const replyContent = document.createElement("p");
                 replyContent.classList.add("reply-content");
 
-                // 버튼 영역
-                const replyBtnArea = document.createElement("div");
-                replyBtnArea.classList.add("reply-btn-area");
+                // 왜 innerHTML? <br> 태그 인식을 위해서
+                replyContent.innerHTML = reply.replyContent;
 
-                // 수정버튼
-                const updateBtn = document.createElement("button");
+                // 행에 작성자, 내용 추가
+                replyRow.append(replyWriter, replyContent);
 
-                // 삭제버튼
-                const deletBtn = document.createElement("button");
+                // 로그인한 회원 번호와 댓글 작성자의 회원번호가 같을 때만 버튼 추가
+                if(loginMemberNo == reply.memberNo){
+                    
+                    // 버튼 영역
+                    const replyBtnArea = document.createElement("div");
+                    replyBtnArea.classList.add("reply-btn-area");
+    
+                    // 수정버튼
+                    const updateBtn = document.createElement("button");
+                    updateBtn.innerText="수정";
+    
+                    // 삭제버튼
+                    const deletBtn = document.createElement("button");
+                    deletBtn.innerText="삭제";
+    
+                    // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
+                    replyBtnArea.append(updateBtn,deletBtn);
 
-                // 버튼 영역 마지막 자식으로 수정/삭제 버튼 추가
-                replyBtnArea.append(updateBtn,deletBtn);
+                    // 행에 버튼 영역 추가
+                    replyRow.append(replyBtnArea);
+                }
 
-                // 행에 작성자, 내용, 버튼영역 추가
-                replyRow.append(replyWriter, replyContent ,replyBtnArea);
 
                 // 댓글 목록(ul)에 행(li)추가
                 replyList.append(replyRow);

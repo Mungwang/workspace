@@ -17,7 +17,7 @@ public class ReplyService {
     * @return replyList
     * @throws Exception
     */
-   public List selectReplyList(int boardNo) throws Exception{
+   public List<Reply> selectReplyList(int boardNo) throws Exception{
       
       Connection conn = getConnection();
       
@@ -27,7 +27,5 @@ public class ReplyService {
       
       return replyList;
    }
-
-   
    
 }
