@@ -10,6 +10,7 @@
     <title>게시판</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/boardDetail-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/reply-style.css">
     <script src="https://kit.fontawesome.com/51fc103959.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -124,14 +125,40 @@
 
                 </c:if>
 
-
-                <button id="goTolistBtn">목록으로</button>
+                <!--  onclick="history.back()" : 뒤로가기 
+                      history.go(숫자) : 양수(앞으로가기), 음수(뒤로가기)
+                -->
+                <button id="goToListBtn">목록으로</button>
             </div>
 
         </section>
         
+        <!-- 댓글 -->
+        <jsp:include page="/WEB-INF/views/board/reply.jsp"/>
+
         </main>
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    
+        
+        <!-- jQuery추가 -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+        <script src="${contextPath}/resources/js/board/board.js"></script>
+
+        <script>
+            // 댓글 관려 JS 코드에 필요한 값을 전역 변수로 선언
+            
+            // jsp 파일 : html, css ,js ,el ,jstl 사용가능
+            // js 파일 : js,jqury
+
+            // 코드 해석 순서 : EL == JSTL > HTML < JS
+            const contextPath = "${contextPath}";
+                                // /community
+
+            // 게시글 번호 조회결과가 없으면 빈칸이되기때문에 문자열로해줘서 ""감싸서 문자열로 만듬
+            const boardNo = "${detail.boardNo}";
+        </script>
+
+        <script src="${contextPath}/resources/js/board/reply.js"></script>
+
 </body>
 </html>
