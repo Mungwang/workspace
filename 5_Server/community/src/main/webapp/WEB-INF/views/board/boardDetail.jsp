@@ -150,12 +150,19 @@
             // jsp 파일 : html, css ,js ,el ,jstl 사용가능
             // js 파일 : js,jqury
 
+            // ★★★ JS코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가★★
             // 코드 해석 순서 : EL == JSTL > HTML < JS
             const contextPath = "${contextPath}";
                                 // /community
 
             // 게시글 번호 조회결과가 없으면 빈칸이되기때문에 문자열로해줘서 ""감싸서 문자열로 만듬
             const boardNo = "${detail.boardNo}";
+
+            // 로그인한 회원 번호
+            const loginMemberNo = "${loginMember.memberNo}";
+            // -> 로그인 O : "로그인한 로그인넘버"
+            // -> 로그인 x : ""; (빈문자열)
+
         </script>
 
         <script src="${contextPath}/resources/js/board/reply.js"></script>
