@@ -54,6 +54,38 @@ public class ReplyController extends HttpServlet{
             new Gson().toJson(replyList, resp.getWriter());
             }
             
+            // 댓글 등록
+            if(command.equals("insert")) {
+            	
+            	// 파라미터 얻어오기
+            	String replyContent = req.getParameter("replyContent");
+            	int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+            	int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+            	
+            	// Reply 객체를 생성해서 파라미터 담기
+            	Reply reply = new Reply();
+            	reply.setReplyContent(replyContent);
+            	reply.setMemberNo(memberNo);
+            	reply.setBoardNo(boardNo);
+            	
+            	// 댓글 등록(insert) 서비스 호출후 결과 반환 받기
+            	int result = service.insertReply(reply);
+            	
+            	// 서비스 호출 결과를 그대로 응답 데이터로 내보냄
+            	resp.getWriter().print(result);
+            }
+            
+            // 댓글 삭제
+            if(command.equals("delete")) {
+            	
+            	int replyNo = Integer.parseInt(req.getParameter("replyNo"));
+            	
+            	int result = service.deleteReply(replyNo);
+            	
+            	resp.getWriter().print(result);
+            	
+            }
+            
          }catch(Exception e) {
             e.printStackTrace();
          }
