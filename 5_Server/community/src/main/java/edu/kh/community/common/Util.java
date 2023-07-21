@@ -14,18 +14,19 @@ public class Util {
 	
 	// Cross site Scripting (XSS : 크로스 사이트 스크립팅) 공격 방지 처리 메소드
 	
-	public static String XSSHandling(String content) {
+	public static String XSSHandling(String content) { 
 		// <, >, $, " 문자를 HTML 코드가 아닌 문자 그대로 보이도록 변경
 		
 		if(content !=null) {
 			
-			content = content.replaceAll("&", "&amp;");
+			content = content.replaceAll("&", "&amp;"); 
 			content = content.replaceAll("<", "&lt;"); 
 			content = content.replaceAll(">", "&gt;"); 
-			content = content.replaceAll("\"", "&quot;");
+			content = content.replaceAll("\"", "&quot;"); 
+			
 		}
 		
-		return content;
+		return content; 
 	
 	}
 	
