@@ -35,7 +35,6 @@ public class ReplyController extends HttpServlet{
       String contextPath = req.getContextPath(); // /community
       String command = uri.substring(  (contextPath + "/reply/").length()  );// test (/reply/ 뒤)
       // /community/reply/ 뒤부터 끝까지를 잘라내겠다.
-
       ReplyService service = new ReplyService();
       
       // 댓글 목록 조회 요청인 경우
