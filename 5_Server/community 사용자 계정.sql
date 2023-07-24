@@ -313,11 +313,6 @@ INSERT INTO REPLY VALUES(
     SEQ_RNO.NEXTVAL,?,DEFAULT,DEFAULT,?,?);
 
 
----------------------------- 2023.07-24 --------------------------------------
--- 댓글 수정
-
-UPDATE REPLY SET REPLY_CONTENT = ?
-WHERE REPLY_NO = ?;
 
 
 
