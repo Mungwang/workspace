@@ -34,7 +34,7 @@
                 <form action="#" method="post" name="myPage-form">
                     
                     <div class="profile-image-area">
-                        <img src="../resources/images/user.png" id="profile-image">
+                        <img src="${contextPath}/resources/images/user.png" id="profile-image">
                     </div>
 
                     <div class="profile-btn-area">
@@ -45,12 +45,12 @@
 
                     <div class="myPage-row">
                         <label>이메일</label>
-                        <span>user01@kh.or.kr</span>
+                        <span>${loginMember.memberEmail}</span>
                     </div>
                     
                     <div class="myPage-row">
                         <label>가입일</label>
-                        <span>2023-07-24 12:09:30</span>
+                        <span>${loginMember.enrollDate}</span>
                     </div>
 
                 </form>

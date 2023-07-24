@@ -179,18 +179,7 @@ public class Pagination {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
+		
 	
 }
