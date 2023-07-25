@@ -102,7 +102,24 @@ public class MyPageProfileServlet extends HttpServlet{
 			// -> 변경된 파일명
 			System.out.println(mpReq.getFilesystemName("profileImage"));
 			
+			// DB에 삽입될 프로필 이미지 경로
+			// 단, X버튼이 클릭된 상태면 null을 가지게 한다
 			String profileImage = folderPath + mpReq.getFilesystemName("profileImage"); 
+			
+			// ** 프로필 이미지 삭제 **
+			// 1) "delete" input type="hidden" 태그의 값(파라미터) 얻어오기
+			// 	  (주의!) multipart/form-data 형식의 요청을 처리 중이기 때문에
+			// 	   req를 이용해서 파라미터를 얻어올 수 없다!
+			//     -> mpReq를 이용하면 가능!
+			
+			int delete = Integer.parseInt( mpReq.getParameter("delete"));
+			
+			// 2) delete의 값이 1(눌러진 경우) 이면 profileImage의 값을 null로 변경
+			if(delete == 1) {
+				
+				profileImage = null;
+			}
+			
 			
 			// 프로필 이미지 변경 Service 호출 후 결과 반환 받기
 			MemberService service = new MemberService();

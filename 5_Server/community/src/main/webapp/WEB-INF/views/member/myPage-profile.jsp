@@ -66,7 +66,7 @@
                         <!-- accpet="image/*" : 이미지 파일 확장자만 선택 허용 -->
                         <!-- accpet="video/*" : 동영상 파일 확장자만 선택 허용 -->
                         <!-- accpet=".pdf" : pdf파일만 선택 허용 -->
-
+                        
                         <button type="submit">변경하기</button>
                     </div>
 
