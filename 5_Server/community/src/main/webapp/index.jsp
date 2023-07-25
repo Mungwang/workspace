@@ -114,11 +114,22 @@
                   <%-- 로그인이 되어있는 경우 --%>
                   <c:otherwise>
                      <article class="login-area">
-                     
-                        <!-- 회원 프로필 이미지-->
+
                         <a href="${contextPath}/member/myPage/profile">
-                           <img src="/community/resources/images/user.png" id="member-profile">
+
+                        <c:if test="${empty loginMember.profileImage}">
+                            <img src="${contextPath}/resources/images/user.png" id="member-profile">
+                        </c:if>
+                        <c:if test="${!empty loginMember.profileImage}">
+                            <img src="${contextPath}${loginMember.profileImage}" id="member-profile">
+                        </c:if>
+                        
                         </a>
+
+                        <!-- 회원 프로필 이미지-->
+                        <!-- <a href="${contextPath}/member/myPage/profile">
+                           <img src="/community/resources/images/user.png" id="member-profile">
+                        </a> -->
                         
                         <!-- 회원 정보 + 로그아웃 버튼 -->
                         <div class="my-info">

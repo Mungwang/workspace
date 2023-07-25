@@ -322,6 +322,12 @@ UPDATE REPLY SET
 UPDATE REPLY SET
 		REPLY_CONTENT = ?
 		WHERE REPLY_NO = ?
+        
+------------------------------------2023.07-25-------------------------------
+SELECT MEMBER_NO, MEMBER_EMAIL, PROFILE_IMG
+FROM MEMBER
+WHERE 
+
 
 
 
