@@ -70,7 +70,11 @@
             </div>
 
             <div class="btn-area">
-                <button id="insertBtn">글쓰기</button>
+                
+                <c:if test="${!empty loginMember}">
+                    <!-- /communty/board/list -->
+                    <button id="insertBtn" onclick="location.href='write?mode=insert&type=${param.type}'">글쓰기</button>
+                </c:if>
             </div>
             
             <div class="pagination-area">

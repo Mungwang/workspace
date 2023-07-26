@@ -320,12 +320,19 @@ UPDATE REPLY SET
 -- 댓글 수정
 UPDATE REPLY SET
 		REPLY_CONTENT = ?
-		WHERE REPLY_NO = ?
+		WHERE REPLY_NO = ?;
         
-------------------------------------2023.07-25-------------------------------
-SELECT MEMBER_NO, MEMBER_EMAIL, PROFILE_IMG
-FROM MEMBER
-WHERE 
+------------------------------------2023.07-26-------------------------------
+-- 다음 게시글 번호 조회
+SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL;
+
+-- 게시글 삽입
+INSERT INTO BOARD
+VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,?);
+
+-- 게시글 이미지 삽입
+INSERT INTO BOARD_IMG
+VALUES(SEQ_IMG_NO.NEXTVAL,?,?,?,?);
 
 
 

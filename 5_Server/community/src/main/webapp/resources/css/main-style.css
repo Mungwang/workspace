@@ -94,6 +94,9 @@ nav{
     top : 0; /*최상단에붙임*/
 
     background-color: white;
+    border-bottom: 2px solid black;
+
+    z-index: 10;
     
 }
 
