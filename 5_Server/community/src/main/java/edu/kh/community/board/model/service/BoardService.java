@@ -125,8 +125,13 @@ public class BoardService {
 		
 		// 트랜잭션
 		
-		if(result > 0) commit(conn);
-		else         rollback(conn); boardNo = 0; 
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+			boardNo = 0;
+		}
+		
 		// 2,3번에서 한번이라도 실패한 경우  // 게시글번호를 0으로 바꿔서 실패했음을 컨트롤러로 전달
 		
 		close(conn);

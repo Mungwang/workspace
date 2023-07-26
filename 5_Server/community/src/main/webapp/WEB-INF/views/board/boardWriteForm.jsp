@@ -16,7 +16,8 @@
 
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-        <form action="write" enctype="multipart/form-data" method="post" class="board-write">
+        <form action="write" enctype="multipart/form-data" method="post" class="board-write"
+            onsubmit="return writeValidate()">
             <!-- post / get 방식이 틀리면 같은이름을 써도 된다 ★★ multipart/form-data [파일그대로 가져가야되니까 POST] ★★ -->
 
             <!-- 제목 -->
@@ -77,7 +78,7 @@
 
             <!-- 내용 -->
             <div class="board-content">
-                <textarea name="board-content"></textarea>
+                <textarea name="boardContent"></textarea>
             </div>
 
             <!-- 버튼 영역 -->

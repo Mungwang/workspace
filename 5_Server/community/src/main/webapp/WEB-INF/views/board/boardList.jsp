@@ -22,7 +22,7 @@
 
 
         <section class="board-list">
-            <h1 class="board-name">게시판 이름</h1>
+            <h1 class="board-name">${boardName}</h1>
 
             <div class="list-wrapper">
                 <table class="list-table">
@@ -73,7 +73,7 @@
                 
                 <c:if test="${!empty loginMember}">
                     <!-- /communty/board/list -->
-                    <button id="insertBtn" onclick="location.href='write?mode=insert&type=${param.type}'">글쓰기</button>
+                    <button id="insertBtn" onclick="location.href='write?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
                 </c:if>
             </div>
             

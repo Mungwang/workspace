@@ -118,6 +118,7 @@ public class BoardWriteController extends HttpServlet{
 			// * 이미지를 제외한 게시글 관련 정보 * 
 			String boardTitle = mpReq.getParameter("boardTitle");
 			String boardContent = mpReq.getParameter("boardContent");
+
 			int boardCode = Integer.parseInt(mpReq.getParameter("type")); // hidden
 			
 			Member loginMember = (Member)session.getAttribute("loginMember");
@@ -145,6 +146,23 @@ public class BoardWriteController extends HttpServlet{
 				// -> 반환된 게시글 번호를 이용해서 상세조회로 리다이렉트 예정
 				int boardNo = service.insertBoard(detail, imageList, boardCode);
 				
+				System.out.println(boardNo);
+				String path = null;
+				
+				if(boardNo > 0) { // 성공
+					session.setAttribute("message","게시글이 등록되었습니다." );
+					// detail?no=2000&type=2
+					path = "detail?no=" + boardNo + "&type=" + boardCode;
+					
+					
+				} else { //실패
+					session.setAttribute("message","게시글이 등록 실패." );
+					
+					// write?mode=insert$type=2
+					path = "write?mode=" + mode + "&type=" + boardCode;
+				}
+				
+				resp.sendRedirect(path);
 			}
 			
 			if(mode.equals("update")) { // 수정
