@@ -322,7 +322,7 @@ UPDATE REPLY SET
 		REPLY_CONTENT = ?
 		WHERE REPLY_NO = ?;
         
-------------------------------------2023.07-26-------------------------------
+------------------------------------2023.07.26-------------------------------
 -- 다음 게시글 번호 조회
 SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL;
 
@@ -334,9 +334,28 @@ VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,?);
 INSERT INTO BOARD_IMG
 VALUES(SEQ_IMG_NO.NEXTVAL,?,?,?,?);
 
+----------------------------------2023.07.27-------------------------------
+UPDATE BOARD SET
+        BOARD_TITLE = ?,
+		BOARD_CONTENT = ?,
+        UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = ?;
 
+-- 게시글 이미지 수정
+-- ?번글의 ?레벨의 변경명, 원본명을 수정
+UPDATE BOARD_IMG SET
+            IMG_RENAME = ?,
+            IMG_ORIGINAL = ?
+            WHERE BOARD_NO = ?
+            AND IMG_LEVEL =?;
+            
+-- 게시글 이미지 삭제
+DELETE FROM BOARD_IMG
+WHERE BOARD_NO = ?
+AND IMG_LEVEL IN ( ;
 
-
+-- deleteList == "1,2,3"
+-- pstmt.setString(2, deleteList)
 
 
 

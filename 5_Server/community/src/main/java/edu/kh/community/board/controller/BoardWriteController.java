@@ -35,6 +35,18 @@ public class BoardWriteController extends HttpServlet{
 			// update는 기존 게시글 내용을 조회하는 처리가 필요함
 			if(mode.equals("update")) {
 				
+				int boardNo = Integer.parseInt( req.getParameter("no"));
+				
+				// 게시글 상세 조회 서비스를 이용해서 기존 애용 조회
+				// ( new BoardService() : 객체를 생성해서 변수에 저장 X -> 1회성 사용 )
+				BoardDetail detail = new BoardService().selectBoardDetail(boardNo);
+				
+				// 개행문자 처리 해제 ( <br> -> \n )
+				detail.setBoardContent(detail.getBoardContent().replaceAll("<br>", "\n"));
+				
+				
+				
+				req.setAttribute("detail", detail); // jsp에서 사용할 수있도록 req에 값 세팅
 			}
 			
 			String path = "/WEB-INF/views/board/boardWriteForm.jsp";
@@ -166,9 +178,55 @@ public class BoardWriteController extends HttpServlet{
 			}
 			
 			if(mode.equals("update")) { // 수정
+				// 앞선 코드는 동일(업로드된 이미지 저장, imagesList 생성, 제목/내용 파라미터 동일)
+				
+				// + update일 때 추가된 내용
+				// 어떤 게시글 수정? -> 파라미터 no
+				// 나중에 목록으로 버튼 만들 때 사용할 현재 페이지 -> 파라미터 cp
+				// 이미지 중 x버튼을 눌러서 삭제할 이미지 레벨 목록 - > 파라미터 deleteList
+				
+				int boardNo = Integer.parseInt(mpReq.getParameter("no"));
+				
+				int cp = Integer.parseInt(mpReq.getParameter("cp"));
+				
+				String deleteList = mpReq.getParameter("deleteList"); // 1,2,3
+				
+				// 게시글 수정 서비스 호출 후 결고 반환 받기
+				// imageList, detail, boardNo, deleteList
+				detail.setBoardNo(boardNo);
+				
+				// imageList, detail, deleteList
+				int result = service.updateBoard(detail, imageList , deleteList);
+				
+				String path = null;
+				String message = null;
+				
+				if(result > 0) { // 성공
+					
+					// detail?no=1000&type=1&cp=20
+					path = "detail?no=" + boardNo + "&type=" + boardCode + "&cp=" + cp;
+					// 	 ↑ 상세 페이지요청주소 
+					
+					message = "게시글이 수정되었습니다.";
+					
+				} else { // 실패
+					
+					// 수정화면으로 이동
+					
+					// 상세 조회 -> 수정화면 -> 수정 -> (성공)상세조회
+					//						   -> (실패)수정화면
+					
+					// write? mode=update&type=2&cp=1&no=1525
+					path = req.getHeader("referer");
+					// referer : HTTP 요청 흔적(요청 바로 이전 페이지 주소)
+					
+					message = "게시글이 수정 실패.";
+				}
+				
+				session.setAttribute("message", message);
+				resp.sendRedirect(path);
 				
 			}
-			
 			
 			
 		} catch (Exception e) {
