@@ -31,7 +31,6 @@ public class MyPageProfileServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
 		try {
 			// 포로필 이미지 업로드 -> 변경
 			

@@ -135,7 +135,7 @@ public class Pagination {
 		// 현재 페이지가 1~10인 경우 : 1
 		// 현재 페이지가 11~20인 경우 : 11
 		// 현재 페이지가 21~30인 경우 : 21
-		
+				
 		startPage = (currentPage -1) / pageSize * pageSize + 1;
 		
 		// * endPage : 목록 하단에 노출된 페이지의 끝 번호

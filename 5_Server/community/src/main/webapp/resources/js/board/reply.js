@@ -81,6 +81,7 @@ function selectReplyList(){
                     // 삭제버튼
                     const deleteBtn = document.createElement("button");
                     deleteBtn.innerText = "삭제";
+                    
                     // 삭제 버튼에 onclick 이벤트 속성 추가
                     deleteBtn.setAttribute("onclick", "deleteReply("+ reply.replyNo+")");
                     

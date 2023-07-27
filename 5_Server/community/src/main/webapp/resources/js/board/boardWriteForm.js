@@ -43,15 +43,18 @@ for(let i=0; i<inputImage.length; i++){
     deleteImage[i].addEventListener("click",function(){
         
         // 미리보기가 존재하는 경우에만 (이전에 추가된 이미지가 있을 때만) x 버튼 동작
+        if(preview[i].getAttribute("src") != ""){
 
-        // 미리보기 삭제
-        preview[i].removeAttribute("src");
+            // 미리보기 삭제
+            preview[i].removeAttribute("src");
+    
+            // input 값을 "" 만들기
+            inputImage[i].value="";
+    
+            // deleteSet에 삭제된 이미지 레벨(i)
+            deleteSet.add(i);
+        }
 
-        // input 값을 "" 만들기
-        inputImage[i].value="";
-
-        // deleteSet에 삭제된 이미지 레벨(i)
-        deleteSet.add(i);
     });
 }
 

@@ -118,7 +118,14 @@
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
                 <button type="submit" id="writeBtn">등록</button>
-                <button type="button" id="goToListBtn">목록으로</button>
+
+                <c:if test="${param.mode == 'insert'}">
+                    <button type="button" id="goToListBtn">목록으로</button>
+                </c:if>
+
+                <c:if test="${param.mode == 'update'}">
+                    <button type="button" onclick="location.href='${header.referer}'">이전으로</button>
+                </c:if>
             </div>
 
             <!-- 숨겨진 값(hidden) -->
