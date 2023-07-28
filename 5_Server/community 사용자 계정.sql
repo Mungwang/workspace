@@ -359,7 +359,22 @@ AND IMG_LEVEL IN ( ;
 -- pstmt.setString(2, deleteList)
 
 
+--------------------------------------------2023.07.28-----------------------------------------------------
 
+-- 게시글 삭제
+UPDATE BOARD SET
+BOARD_ST = 'Y'
+WHERE BOARD_NO = ?;
+
+-- 2번 게시판의 전체 게시글 수 조회
+SELECT COUNT(*) FROM BOARD
+JOIN MEMBER USING(MEMBER_NO)
+WHERE BOARD_ST = 'N'
+AND BOARD_CD = 2
+-- AND BOARD_TITLE LIKE '%50%'; --제목
+-- AND BOARD_CONTENT LIKE '%50%'; --내용
+-- AND (BOARD_TITLE LIKE '%50%'OR BOARD_CONTENT LIKE '%50%'); -- 제목+내용
+AND MEMBER_NICK LIKE '%유일%'; -- 작성자
 
 
 
