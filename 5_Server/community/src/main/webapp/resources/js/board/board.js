@@ -81,9 +81,7 @@
 
             // url에 쿼리스트링 추가
             url += no+type; // delete?no=1562&type=1
-            if(confirm("test")){
-            }
-            console.log("test")
+    
             if(confirm("정말로 삭제 하시겠습니까?")){
                 location.href = url;
             }
