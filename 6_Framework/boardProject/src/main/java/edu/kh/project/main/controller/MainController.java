@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	
 	// tip : spring에서 controller 메소드 작성 시
-	// 반환 값을 모르겠으면 일단 String으로 작성!
+	// 반환 값을 모르겠으면 일단 Spring으로 작성!
 	
 	// @RequestMapping("/") : 요청 주소가 "/"인 경우 해당 메소드와 연결해준다.
 	
