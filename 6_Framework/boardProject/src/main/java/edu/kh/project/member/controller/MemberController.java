@@ -2,7 +2,9 @@ package edu.kh.project.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.kh.project.member.model.dto.Member;
+import edu.kh.project.member.model.service.MemberService;
 
 
 
@@ -29,6 +32,11 @@ import edu.kh.project.member.model.dto.Member;
 @RequestMapping("/member") // 공통된 주소 앞부분 작성
 						   // member로 시작하는 요청은 해당 컨트롤러에서 처리
 public class MemberController {
+	
+	// 등록된 Bean 중에서 필드와 타입이 일치하는 Bean을 주입
+	// -> MemberService를 구현한 MemberServiceImpl의 Bean을 주입
+	@Autowired
+	private MemberService service;
 	
 	// 로그인 	: /member/login
 	// 로그아웃 	: /member/logout 
@@ -92,7 +100,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	@PostMapping("/login")
+	// @PostMapping("/login")
 	public String login(/* @ModelAttribute */ Member inputMember) {
 		
 		// 파라미터 전달 방법 3 : @ModelAttribute를 이용한방법
@@ -116,7 +124,28 @@ public class MemberController {
 		return "redirect:/";
 		
 	}
-
+	
+	// ***********************************************************************
+	
+	/** 로그인 요청 처리(찐)
+	 * @return 메인페이지 redirect 주소
+	 */
+	
+	@PostMapping("/login")
+	public String login(Member inputMember, Model model) {
+		
+		// Member inputMember : 커멘드 객체(필드에 파라미터 담겨있음)
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 
