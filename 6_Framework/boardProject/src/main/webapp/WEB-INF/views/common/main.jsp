@@ -34,7 +34,6 @@
 				${sessionScope.loginMember}
 
 
-
 			</section>
 
 			<section class="content-2">
@@ -52,7 +51,8 @@
 						<form action="/member/login" method="POST" id="loginFrm">
 							<fieldset class="id-pw-area">
 								<section>
-									<input type="text" name="memberEmail" placeholder="이메일" autocomplete="off" value="${cookie.saveId.value}"> <input type="password" name="memberPw" placeholder="비밀번호">
+									<input type="text" name="memberEmail" placeholder="이메일" autocomplete="off" value="${cookie.saveId.value}"> 
+									<input type="password" name="memberPw" placeholder="비밀번호">
 								</section>
 								<section>
 									<button>로그인</button>
@@ -88,7 +88,7 @@
 							</label>
 
 							<article class="signup-find-area">
-								<a href="#">회원가입</a> <span>|</span> <a href="#">ID/PW 찾기</a>
+								<a href="/member/signUp">회원가입</a> <span>|</span> <a href="#">ID/PW 찾기</a>
 							</article>
 						</form>
 
@@ -124,7 +124,11 @@
 	</main>
 
 	<%-- footer --%>
+
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+	<%-- main.js 추가 --%>
+	<script src="/resources/js/main.js"></script>
 
 </body>
 </html>
