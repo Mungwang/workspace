@@ -53,8 +53,6 @@
 	  -->
 	
 	
-	
-	
 	<context:component-scan base-package="edu.kh.project" />
 	
 	
