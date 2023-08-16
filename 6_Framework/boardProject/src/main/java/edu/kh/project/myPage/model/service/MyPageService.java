@@ -9,5 +9,22 @@ public interface MyPageService {
 	 * @return result
 	 */
 	int updateInfo(Member updateMember);
+
+	
+	/** 비밀번호 변경 시퀀스
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 */
+	int changePw(String currentPw, String newPw, int memberNo);
+
+
+	/** 회원탈퇴 변경 서비스
+	 * @param memberPw
+	 * @param memberNo
+	 * @return result
+	 */
+	int secession(String memberPw, int memberNo);
 	
 }

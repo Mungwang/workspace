@@ -98,6 +98,11 @@ MEMBER_PW = '$2a$10$TRuZo8uRSx7Tw8GrRRGSO.MB1Y5ycnKTnEKTf0S0pJZc077MRRQM.';
 
 COMMIT;
 
+-- 회원 번호가 일치하는 회원의 비밀번호 변경
+UPDATE MEMBER SET
+MEMBER_PW = ?
+WHERE MEMBER_NO = ?; 
+
 
 
 
