@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-
 
     <link rel="stylesheet" href="/resources/css/member/signUp-style.css">
 </head>
@@ -47,7 +45,6 @@
                     <span class="required">*</span> 인증번호
                 </label>
 
-
                 <div class="signUp-input-area">
                     <input type="text" name="authKey" id="authKey" s placeholder="인증번호 입력" maxlength="6" autocomplete="off" >
                    
@@ -56,7 +53,6 @@
                 <span class="signUp-message" id="authKeyMessage"></span>
                                 <!-- 인증번호가 일치하지 않습니다 -->
                
-
 
                 <!-- 비밀번호/비밀번호 확인 입력 -->
                 <label for="memberPw">
@@ -75,8 +71,6 @@
 
 
                 <span class="signUp-message" id="pwMessage">영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.</span>
-
-
 
 
                 <!-- 닉네임 입력 -->
@@ -107,7 +101,6 @@
 
                 <span class="signUp-message" id="telMessage">전화번호를 입력해주세요.(- 제외)</span>
 
-
                 <!-- 주소 입력 -->
                 <label for="memberAddress">주소</label>
 
@@ -127,9 +120,6 @@
                 <div class="signUp-input-area">
                     <input type="text" name="memberAddress" placeholder="상세 주소" id="sample6_detailAddress">
                 </div>
-
-
-
 
                 <button id="signUpBtn">가입하기</button>
             </form>
