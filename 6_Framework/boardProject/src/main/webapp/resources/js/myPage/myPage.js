@@ -130,9 +130,41 @@ if(changePwFrm !=null){
     });  
 }
 
+// 회원 탈퇴 페이지인 경우
+const secessionFrm = document.getElementById("secessionFrm");
+const memberPw = document.getElementById("memberPw");
+const agree = document.getElementById("agree");
 
+if(secessionFrm != null){
 
+    secessionFrm.addEventListener("submit", e => {
 
+        // 비밀번호 미작성
+        if(memberPw.value.trim() == ""){
+            alert("비밀번호를 작성해주세요");
+            e.preventDefault();
+            memberPw.focus();
+            memberPw.value = "";
+            return;
+        }
+        
+        // 동의 체크가 되지 않은 경우
+        if(!agree.checked){
+            alert("약관 동의 후 탈퇴 버튼을 눌러주세요");
+            e.preventDefault();
+            agree.focus();
+            return;
+        }
+        
+        // 취소 클릭 시 
+        if(!confirm("정말로 탈퇴 하시겠습니까?")){
+            alert("탈퇴취소");
+            e.preventDefault();
+            return;
+        }
 
+    })
+
+}
 
 
