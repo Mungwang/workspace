@@ -8,5 +8,33 @@
 	WHERE MEMBER_EMAIL = #{email}
 	AND MEMBER_DEL_FL ='N'
 	</select>
-
+	
+	<!-- 닉네임으로 전화번호 조회 -->
+	
+	<!-- parameterType : 전달 받은 파라미터의 자료형 작성 (선택사항)
+		 	-> 작성 안하면 TypeHandler가 알아서 처리 
+	 -->
+	
+	<select id="selectMemberTel" resultType="string">
+	SELECT MEMBER_TEL FROM MEMBER
+	WHERE MEMBER_NICKNAME = #{nickname}
+	AND MEMBER_DEL_FL ='N'
+	</select>
+	
+	<!-- 중복되는 이메일 조회 -->
+	<select id="dupCheckEmail" resultType="_int">
+	SELECT COUNT(*) FROM MEMBER
+	WHERE MEMBER_EMAIL = #{email}
+	AND MEMBER_DEL_FL ='N'
+	</select>
+	
+	<!-- 중복되는 닉네임 조회 -->
+	<select id="dupCheckNickname" resultType="_int">
+	SELECT COUNT(*) FROM MEMBER
+	WHERE MEMBER_NiCKNAME = #{nickname}
+	AND MEMBER_DEL_FL ='N'
+	</select>
+	
+	
+	
 </mapper>

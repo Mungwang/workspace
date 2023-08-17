@@ -17,4 +17,24 @@ public class AjaxServiceImpl implements AjaxService {
 		
 		return dao.selectNickname(email);
 	}
+	
+	// 닉네임으로 전화번호조회
+	@Override
+	public String selectMemberTel(String nickname) {
+		
+		return dao.selectMemberTel(nickname);
+	}
+	
+	// 이메일중복 조회
+	@Override
+	public int dupCheckEmail(String email) {
+		
+		return dao.dupCheckEmail(email);
+	}
+	
+	// 닉네임중복 조회
+	@Override
+	public int dupCheckNickname(String nickname) {
+		return dao.dupCheckNickname(nickname);
+	}
 }

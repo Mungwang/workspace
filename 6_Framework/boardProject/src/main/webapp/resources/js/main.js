@@ -50,5 +50,34 @@ function selectNickname(email){
 
     .catch(e => {console.log(e)}) // 예외 발생시 처리할 내용을 작성
 
-
 }
+
+// 닉네임이 일치하는 회원의 전화번호 조회
+const inputNickname = document.getElementById("inputNickname")
+const btn1 = document.getElementById("btn1")
+const result1 = document.getElementById("result1")
+
+btn1.addEventListener("click", e=>{
+
+    // fetch() API를 이용해서 ajax(비동기 통신)
+
+    // GET 방식 요청(파라미터를 쿼리스트링으로 추가)
+    fetch("/selectMemberTel?nickname="+ inputNickname.value)
+    .then(resp => resp.text() )
+
+    // resp : 응답 객체
+    // resp.text() : 응답 객체 내용을 문자열로 변환하여 반환
+    // tel : 파싱되어 반환된 값이 저장된 변수
+    .then( tel => {
+        /* 비동기 요청 후 수행할 코드 */
+        result1.innerText = tel; // 조회 결과를 result1에 출력
+
+    })
+
+    .catch(err => console.log(err));
+    // 에러 발생시 콘솔에 출력
+
+
+
+
+});

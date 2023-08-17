@@ -120,11 +120,40 @@ memberEmail.addEventListener("input", () =>{
 
     // 2) 입력 받은 이메일과 정규식 일치 여부 판별
     if(regEx.test(memberEmail.value)){ // 유효한경우
-        emailMessage.innerText ="유효한 이메일형식입니다"
-        emailMessage.classList.add("confirm");
-        emailMessage.classList.remove("error");
 
-        checkObj.memberEmail = true; // 유효 O
+        /* ***************************************************************** */
+        /* fetch() API를 이용한 ajax(비동긴 통신) */
+
+        // GET 방식 ajax 요청(파라미터는 쿼리스트링으로!)
+        fetch("/dupCheck/email?email="+memberEmail.value)
+
+        .then( response => response.text()) // 응답객체 => 파싱(parsing , 데이터 형태 변환)
+
+        .then( count => {
+            // count : 중복되면 1, 중복안되면 0
+            if(count ==0){
+                
+                emailMessage.innerText ="사용 가능한 이메일 입니다."
+                emailMessage.classList.add("confirm");
+                emailMessage.classList.remove("error");
+        
+                checkObj.memberEmail = true; // 유효 O
+            }else{
+
+                emailMessage.innerText ="이미 사용중인 이메일입니다"
+                emailMessage.classList.add("error");
+                emailMessage.classList.remove("confirm");
+        
+                checkObj.memberEmail = false; //  유효 X
+
+            }
+            
+
+        }) // 파싱한 데이터를 이용해서 수행할 코드 작성
+
+        .catch( err => console.log(err)) // 예외처리
+
+        /* ***************************************************************** */
 
     } else{ // 유효하지않은경우
         emailMessage.innerText ="유효하지않은 이메일형식 입니다"
@@ -256,11 +285,31 @@ memberNickname.addEventListener("input", e =>{
     // 정규표현식으로 유효성검사
     const regEx =/^[가-힣A-Za-z0-9]{2,10}$/
 
-    if(regEx.test(memberNickname.value)){
-        nickMessage.innerText ="유효한 닉네임형식입니다"
-        nickMessage.classList.add("confirm");
-        nickMessage.classList.remove("error");
-        checkObj.memberNickname = true; // 유효 O
+    if(regEx.test(memberNickname.value)){ //유효
+
+        fetch("/dupCheck/nickname?nickname="+memberNickname.value)
+
+        .then( response => response.text())
+
+        .then( count=>{
+
+            if(count ==0){
+
+                nickMessage.innerText ="사용가능한 닉네임입니다"
+                nickMessage.classList.add("confirm");
+                nickMessage.classList.remove("error");
+                checkObj.memberNickname = true; // 유효 O
+
+            }else{
+
+                nickMessage.innerText = "중복되는 닉네임입니다"
+                nickMessage.classList.add("error");
+                nickMessage.classList.remove("confirm");
+                checkObj.memberNickname = false; // 유효 X
+            }
+        })
+
+        .catch(err => console.log(err))
 
     }else{
         nickMessage.innerText ="유효하지않은 닉네임형식입니다"
@@ -305,15 +354,6 @@ memberTel.addEventListener("input", e =>{
     }
 
 })
-
-
-
-
-
-
-
-
-
 
 // 회원 가입 form태그가 제출 되었을 때
 const signUp = document.getElementById("signUpFrm");

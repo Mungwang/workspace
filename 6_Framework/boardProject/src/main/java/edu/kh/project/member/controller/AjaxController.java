@@ -13,11 +13,77 @@ public class AjaxController {
 	@Autowired
 	private AjaxService service;
 	
-	// 이메일로 닉네임 조회
+	// 이메일로 닉네임 조회		// 조회결과가 한글일때만 적어주면됌 숫자는 안적어도됌
 	@GetMapping(value="/selectNickname", produces = "application/text; charset=UTF-8")
 	@ResponseBody
 	public String selectNickname(String email) {
 										// 쿼리스트링에 담긴 파라미터
 		return service.selectNickname(email);
 	}
+	
+	// 닉네임으로 전화번호 조회
+	@GetMapping("/selectMemberTel")
+	@ResponseBody
+	public String selectMemberTel(String nickname) {
+		
+		// return 리다이렉트 / 포워드; -> 새로운 화면이 보임(동기식)
+		
+		// return 데이터; -> 데이터를 요청한 곳으로 반환 (비동기식)
+		
+		return service.selectMemberTel(nickname);
+		
+	}
+	// ** int 타입은 jack-databind pom.xml에 추가해야함 ** 
+	
+	// 이메일 중복 검사
+	@GetMapping("/dupCheck/email")
+	@ResponseBody // HttpMessageConverter를 이용해
+				  // JS에서 인식할 수있는 형태(TEXT/JSON)변환
+				  // + 비동기 요청한 곳으로 돌아감
+	public int dupCheckEmail(String email) {
+		
+		return service.dupCheckEmail(email);
+	}
+	
+	// 닉네임 중복 검사
+	@GetMapping("/dupCheck/nickname")
+	@ResponseBody
+	public int dupCheckNickname(String nickname) {
+		
+		return service.dupCheckNickname(nickname);
+		
+	}
+	
+	/* Ajax를 이용한 비동기 통신 시
+     * 
+     * - 요청 데이터를 얻어오는 방법
+     * 1) GET : 요청 url에 쿼리스트링 형태로 파라미터가 담겨있어
+     *          @RequestParam, @ModelAttribute를 이용해서 얻어옴
+     * 
+     * 2) POST : HTTP 요청 Body에 파라미터가 담겨 있으므로
+     *           @RequestBody를 통해 값(JSON)을 얻어와 
+     *           Java객체로 변환(HttpMessageConverter)
+     * 
+     * - 응답 방법(GET/POST 구분 X)
+     * : @ResponseBody를 이용해 반환
+     *   -> 해당 어노테이션을 작성하면  
+     *   Controller에서 반환되는 값이 ViewResolver가 아닌 
+     *   HttpMessageConverter로 전달되어 
+     *   반환된 Java객체를 text/JSON으로 변환 후 비동기 요청을 한 곳으로 응답함
+     * 
+     * 
+     * ****************************
+     * *** HttpMessageConverter ***
+     * ****************************
+     * 
+     * HTTP 요청 Body의 내용을 Java 객체로 변환하고
+     * HTTP 응답의 Body의 내용을 text/JSON 형태로 변환해주는 
+     * Spring Framework 구성 요소
+     * 
+     * Spring에서 사용하는 MessageConverter 종류
+     * 1순위 : ByteArrayHttpMessageConverter (바이트 배열 자동 변환)
+     * 2순위 : StringHttpMessageConverter (Text 형식 자동 변환)
+     * 3순위 : MappingJackson2HttpMessageConverter (요청 데이터 -> DTO/Map , 응답 데이터 -> JSON)
+     * */   
+
 }

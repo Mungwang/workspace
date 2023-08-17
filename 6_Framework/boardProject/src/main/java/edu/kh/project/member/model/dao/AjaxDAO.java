@@ -15,4 +15,22 @@ public class AjaxDAO {
 		
 		return sqlSession.selectOne("ajaxMapper.selectNickname",email);
 	}
+
+
+	public String selectMemberTel(String nickname) {
+		
+		return sqlSession.selectOne("ajaxMapper.selectMemberTel",nickname);
+	}
+
+
+	public int dupCheckEmail(String email) {
+		
+		return sqlSession.selectOne("ajaxMapper.dupCheckEmail",email);
+	}
+
+
+	public int dupCheckNickname(String nickname) {
+		
+		return sqlSession.selectOne("ajaxMapper.dupCheckNickname",nickname);
+	}
 }
