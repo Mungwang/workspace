@@ -19,7 +19,7 @@
 		<id> 태그 : PK 역할 컬럼 - 필드 매핑
 		<result> 태그 : <id>제외 나머지
 	-->
-	
+	<!-- <resultMap type="원래는 DTO클래스네임까지 경로를 다 작성해야함 근데 마이바티스에서 별칭 Member로 해놨기때문에 ↓ *Member*로 적을수있음" id="resultMap을 지칭할 별칭지정"></resultMap> -->
 	<resultMap type="Member" id="member_rm">
 		
 		<!-- DB의 기본 키(복합키면 여러 개 작성)-->
@@ -34,7 +34,8 @@
 		<result property="profileImage" column="PROFILE_IMG"/>	
 		<result property="enrollDate" column="ENROLL_DATE"/>	
 		<result property="memberDeleteFlag" column="MEMBER_DEL_FL"/>	
-		<result property="authority" column="AUTHORITY"/>	
+		<result property="authority" column="AUTHORITY"/>
+			
 	</resultMap>
 	
 		
@@ -49,10 +50,10 @@
 		
 		- resultType : select 결과를 담아서 반환할 자료형
 					   단, DTO를 작성할 경우 필드명 = 컬럼명 인 경우만 가능
-					   			 	 memberNo   MEMBER_NO   
+					   			 	 memberNo = MEMBER_NO   
 					   			 	 
 		- rseultMap  : select 결과의 컬럼명과
-					   결과를 저장할 DTO 필드명이 다를 경우
+					   결과를 저장할 DTO 필드명이 *다를 경우*
 					   이를 알맞게 매핑(연결)시켜주는 <resultMap> id 작성
 	 -->
 	
