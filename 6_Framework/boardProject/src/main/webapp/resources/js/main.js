@@ -36,3 +36,19 @@ if(loginFrm != null){
     })
 
 }
+
+// 비동기로 이메일이 일치하는 회원의 닉네임 조회
+function selectNickname(email){
+
+    fetch("/selectNickname?email="+ email) 
+        // 지정된 주소로 GET방식 비동기 요청(ajax)
+        // 전달하고자 하는 파라미터를 주소 뒤 쿼리스트링으로 추가
+
+    .then(response => response.text()) // 요청에 대한 응답 객체(response)를 필요한 형태로 파싱
+ 
+    .then(nickname => {console.log(nickname)}) // 첫 번째 then에서 파싱한 데이터를 이용한 동작 작성
+
+    .catch(e => {console.log(e)}) // 예외 발생시 처리할 내용을 작성
+
+
+}
