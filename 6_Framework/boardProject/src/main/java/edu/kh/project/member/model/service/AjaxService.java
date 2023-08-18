@@ -1,5 +1,9 @@
 package edu.kh.project.member.model.service;
 
+import java.util.List;
+
+import edu.kh.project.member.model.dto.Member;
+
 public interface AjaxService {
 
 	
@@ -26,6 +30,18 @@ public interface AjaxService {
 	 * @return
 	 */
 	int dupCheckNickname(String nickname);
+
+	/** 이메일로 회원 정보조회 service
+	 * @param email
+	 * @return
+	 */
+	Member selectMember(String email);
+
+	/** 이메일이 일부라도 일치하는 모든 회원 조회
+	 * @param input
+	 * @return
+	 */
+	List<Member> selectMemberList(String input);
 
 
 }

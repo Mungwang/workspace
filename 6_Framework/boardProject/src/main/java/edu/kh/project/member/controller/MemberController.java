@@ -334,7 +334,7 @@ public class MemberController {
 			// 배열의 요소를 하나의 문자열로 변경
 			// 단, 요소 사이에 "구분자" 추가
 			
-			String addr = String.join("^^^", memberAddress);
+			String addr = String.join(",", memberAddress);
 			inputMember.setMemberAddress(addr);
 		}
 		
