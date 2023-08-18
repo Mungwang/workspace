@@ -76,7 +76,7 @@
 								   MEMBER_EMAIL = 'user01'
 	
 	 -->
-	 
+
 	<select id="login" parameterType="Member" resultMap="member_rm">
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME,MEMBER_PW,
 			MEMBER_TEL, MEMBER_ADDR, PROFILE_IMG, AUTHORITY,

@@ -77,7 +77,40 @@ btn1.addEventListener("click", e=>{
     .catch(err => console.log(err));
     // 에러 발생시 콘솔에 출력
 
-
-
-
 });
+
+
+// fetch() API를 이용한 POST 방식 요청
+
+// 이메일을 입력 받아 일치하는 회원의 정보를 모두 조회
+const inputEmail = document.getElementById("inputEmail");
+const btn2 = document.getElementById("btn2");
+const result2 = document.getElementById("result2");
+
+btn2.addEventListener("click", ()=>{
+
+    // POST 방식 비동기 요청   ** key값은 문자열밖에 없다고 생각해서 생략해도 '' 붙은걸로 인식 **
+                           // ** json은 자바스크립트 객체를 문자열로 바꾼것 **
+
+    // JSON.stringify() : JS객체 -> JSON
+    // JSON.parse()     : JSON -> JS객체
+
+    fetch("/selectMember",{
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify({"email" : inputEmail.value}) // 자바스크립트 객체
+    })
+
+    .then( resp => resp.json()) // 응답 객체를 매개변수로 얻어와서 파싱
+
+    .then( member => {
+        console.log(member);
+
+    }) // 파싱한 데이터를 이용해서 비동기 처리 후 동작
+
+    .catch( err => console.log(err))
+    // .catch( (err) => {return console.log(err)}) // 이게 *정석*  매개변수 1개만있을때 생략가능 or 객체가아니라면 생략가능
+    
+
+})
+

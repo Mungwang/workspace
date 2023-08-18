@@ -39,6 +39,15 @@
 				<button id="btn1">조회</button>
 				<h4 id="result1"></h4>
 
+				<hr>
+
+				<h3>이메일을 입력 받아 일치하는 회원의 정보를 조회</h3>
+				email : <input type="text" id="inputEmail">
+				<button id="btn2">조회</button>
+				<ul id="result2">
+
+				</ul>
+
 			</section>
 
 			<section class="content-2">
