@@ -399,7 +399,8 @@ sendAuthKeyBtn.addEventListener("click", function(){
        
         authKeyMessage.innerText = "05:00";
         authKeyMessage.classList.remove("confirm");
-
+        clearInterval(authTimer);
+        
         authTimer = window.setInterval(()=>{
 
             authKeyMessage.innerText = "0" + authMin + ":" + (authSec<10 ? "0" + authSec : authSec);
