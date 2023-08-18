@@ -100,6 +100,7 @@ public class EmailServiceImpl implements EmailService {
             mail.setText(mailContent, charset, "html"); //"html" 추가 시 HTML 태그가 해석됨
             
             mailSender.send(mail);
+            
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
