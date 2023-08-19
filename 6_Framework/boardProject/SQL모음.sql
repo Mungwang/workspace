@@ -1,6 +1,6 @@
 ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 
--- 계정 생성
+-- 계정 생성하기
 CREATE USER project IDENTIFIED BY "project1234";
 
 -- 권한 부여
