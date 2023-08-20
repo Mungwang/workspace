@@ -58,9 +58,9 @@
                         문자열을 구분자로 나누어 배열 형태로 반환
                      --%>
 
-                     <c:set var="addr" value="${fn:split(loginMember.memberAddress,'^^^')}"/>
+                     <c:set var="addr" value="${fn:split(loginMember.memberAddress,',')}"/>
 
-
+                
                     <div class="myPage-row info-address">
                         <input type="text" id="sample6_postcode" name="memberAddress" placeholder="우편번호" value="${addr[0]}">
                         <button type="button" onclick="sample6_execDaumPostcode()">검색</button>

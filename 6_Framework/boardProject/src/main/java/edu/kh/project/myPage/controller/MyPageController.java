@@ -72,7 +72,7 @@ public class MyPageController {
 		// RedirectAttributes ra : 리다이렉트 시 값 전달용 객체 (request)
 		// -----------------------------------------------------------
 		// 주소 하나로 합치기(a^^^b^^^c^^^)
-		String addr = String.join("^^^", memberAddress);
+		String addr = String.join(",", memberAddress);
 		updateMember.setMemberAddress(addr);
 		
 		// 로그인한 회원의 번호를 updateMember에 추가
