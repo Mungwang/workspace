@@ -484,6 +484,32 @@ SELECT * FROM(
 )
 WHERE NUM BETWEEN 1 AND 10;
 
+SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+         
+            CASE  
+               WHEN SYSDATE - B_CREATE_DATE < 1/24/60
+               THEN FLOOR( (SYSDATE - B_CREATE_DATE) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - B_CREATE_DATE < 1/24
+               THEN FLOOR( (SYSDATE - B_CREATE_DATE) * 24 * 60) || '분 전'
+               WHEN SYSDATE - B_CREATE_DATE < 1
+               THEN FLOOR( (SYSDATE - B_CREATE_DATE) * 24) || '시간 전'
+               ELSE TO_CHAR(B_CREATE_DATE, 'YYYY-MM-DD')
+            END B_CREATE_DATE,
+         (SELECT COUNT(*) FROM "COMMENT" C
+          WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+          
+         (SELECT COUNT(*) FROM BOARD_LIKE L
+          WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT,
+          
+         (SELECT IMG_PATH || IMG_RENAME FROM BOARD_IMG I
+         WHERE I.BOARD_NO = B.BOARD_NO
+         AND IMG_ORDER = 0) THUMBNAIL
+      FROM "BOARD" B
+      JOIN "MEMBER" USING(MEMBER_NO)
+      WHERE BOARD_DEL_FL = 'N'
+      AND BOARD_CODE = 1
+      ORDER BY BOARD_NO DESC
+
 
 
 
