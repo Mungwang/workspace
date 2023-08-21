@@ -101,7 +101,7 @@
              application scope에서 얻어와 화면에 출력
          --%>
          <c:forEach var="type" items="${boardTypeList}">
-              <li><a href="#">${type.BOARD_NAME}</a></li>
+              <li><a href="/board/${type.BOARD_CODE}">${type.BOARD_NAME}</a></li>
          </c:forEach>
     </ul>
 </nav>

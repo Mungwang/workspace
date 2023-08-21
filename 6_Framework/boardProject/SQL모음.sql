@@ -374,6 +374,79 @@ CREATE SEQUENCE SEQ_BOARD_NO NOCACHE; -- 게시글 번호
 CREATE SEQUENCE SEQ_IMG_NO NOCACHE; -- 게시글 이미지 번호
 CREATE SEQUENCE SEQ_COMMENT_NO NOCACHE; -- 댓글 번호
 
+-- BOARD 테이블 샘플 데이터 삽입(PL/SQL)
+BEGIN
+   FOR I IN 1..2000 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+              SEQ_BOARD_NO.CURRVAL || '번째 게시글',
+              SEQ_BOARD_NO.CURRVAL || '번째 게시글 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, 4, 
+              CEIL(DBMS_RANDOM.VALUE(0,5))
+      );
+   END LOOP;
+END;
+/
+
+SELECT * FROM MEMBER
+WHERE MEMBER_NO =1;
+
+SELECT * FROM BOARD_TYPE;
+
+SELECT COUNT(*) FROM BOARD;
+COMMIT;
+
+-- BOARD_CODE가 1(공지사항)인 게시글을 최신순으로 조회
+-- 단, 삭제된 글은 제외
+SELECT * FROM BOARD
+WHERE BOARD_CODE = 1
+AND BOARD_DEL_FL = 'N'
+ORDER BY BOARD_NO DESC;
+
+-- COMMENT 테이블 샘플 데이터 삽입(PL/SQL)
+BEGIN
+   FOR I IN 1..1000 LOOP
+      INSERT INTO "COMMENT" 
+      VALUES(SEQ_COMMENT_NO.NEXTVAL, 
+            SEQ_COMMENT_NO.CURRVAL || '번째 댓글',
+            DEFAULT, DEFAULT,
+             CEIL(DBMS_RANDOM.VALUE(0,2000)),
+             4, NULL);
+   END LOOP;
+END;
+/
+
+SELECT * FROM "COMMENT";
+
+COMMIT;
+
+-- 게시글 샘플 이미지
+INSERT INTO BOARD_IMG
+VALUES(SEQ_IMG_NO.NEXTVAL,'/resources/images/board/',
+       '202308211420_00001.jpg','cat1.jpg',0,1991);
+       
+INSERT INTO BOARD_IMG
+VALUES(SEQ_IMG_NO.NEXTVAL,'/resources/images/board/',
+       '202308211420_00002.jpg','cat2.jpg',0,1986);
+
+INSERT INTO BOARD_IMG
+VALUES(SEQ_IMG_NO.NEXTVAL,'/resources/images/board/',
+       '202308211420_00003.jpg','cat3.jpg',0,1982);
+       
+INSERT INTO BOARD_IMG
+VALUES(SEQ_IMG_NO.NEXTVAL,'/resources/images/board/',
+       '202308211420_00004.jpg','cat4.jpg',0,1980);
+
+INSERT INTO BOARD_IMG
+VALUES(SEQ_IMG_NO.NEXTVAL,'/resources/images/board/',
+       '202308211420_00005.jpg','cat5.jpg',0,1978);
+       
+COMMIT;
+-- 이밑 구문에서 제일위에있는번호 ↑ 맨끝에 대입
+SELECT BOARD_NO FROM BOARD
+WHERE BOARD_CODE = 1
+ORDER BY 1 DESC;
+
 
 
 

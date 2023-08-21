@@ -143,7 +143,7 @@ public class MemberController {
 						, @RequestParam(value="saveId", required=false) String saveId
 						, HttpServletResponse resp
 						, RedirectAttributes ra) {
-						
+		
 		// Member inputMember : 커멘드 객체(필드에 파라미터 담겨있음)
 		
 		// @RequestHeader(value="referer") String referer
