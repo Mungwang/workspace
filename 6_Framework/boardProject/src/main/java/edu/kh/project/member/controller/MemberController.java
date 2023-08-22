@@ -61,8 +61,6 @@ public class MemberController {
 		
 		String inputEmail = req.getParameter("inputEmail");
 		
-		System.out.println("inputemail == " + inputEmail);
-		
 		// ** redirect 방법 ! **
 		
 		// "redirect : 요청주소"
