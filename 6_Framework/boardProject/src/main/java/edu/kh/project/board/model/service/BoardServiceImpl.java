@@ -59,5 +59,13 @@ public class BoardServiceImpl implements BoardService {
 		
 		return dao.selectBoard(map);
 	}
+	
+	// 좋아요 여부 조회
+	@Override
+	public int boardLikeCheck(Map<String, Object> map) {
+		
+		return dao.boardLikeCheck(map);
+		
+	}
 
 }

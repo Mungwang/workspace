@@ -65,4 +65,12 @@ public class BoardDAO {
 		
 		return sqlSession.selectOne("boardMapper.selectBoard",map);
 	}
+
+	/** 좋아요 여부 조회
+	 * @param map
+	 * @return result
+	 */
+	public int boardLikeCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.boardLikeCheck",map);
+	}
 }

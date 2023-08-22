@@ -49,8 +49,16 @@
                     
                     <!-- 좋아요 하트 -->
                     <span class="like-area">
-                        <i class="fa-regular fa-heart" id="boardLike"></i>
-                        <%-- <i class="fa-solid fa-heart" id="boardLike"></i> --%>
+
+                        <%-- 좋아요 누른적이 없거나, 로그인 X --%>
+                        <c:if test="${empty likeCheck}" >
+                            <i class="fa-regular fa-heart" id="boardLike"></i>
+                        </c:if>
+
+                         <c:if test="${!empty likeCheck}" >
+                            <i class="fa-solid fa-heart" id="boardLike"></i> 
+                        </c:if>
+
 
                         <span>${board.likeCount}</span>
                     </span>

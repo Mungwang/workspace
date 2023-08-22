@@ -25,4 +25,10 @@ public interface BoardService {
 	 */
 	Board selectBoard(Map<String, Object> map);
 
+	/** 좋아요 확인 조회
+	 * @param map
+	 * @return
+	 */
+	int boardLikeCheck(Map<String, Object> map);
+
 }
