@@ -574,6 +574,29 @@ SELECT COUNT(*) FROM BOARD_LIKE
 WHERE BOARD_NO = 1991 -- 게시글 번호
 AND MEMBER_NO = 4; -- 로그인한 회원 번호
 
+commit;
+
+-------------------------2023-08-23--------------------------
+-- 좋아요 테이블 삽입
+INSERT INTO BOARD_LIKE
+VALUES(1991,3);
+
+-- 좋아요 테이블 삭제
+DELETE FROM BOARD_LIKE WHERE BOARD_NO =1991 AND MEMBER_NO = 3;
+
+commit;
+
+-- 좋아요 개수 조회
+SELECT COUNT(*) FROM BOARD_LIKE
+WHERE BOARD_NO = 1991;
+
+-- 조회수 증가
+UPDATE BOARD SET
+READ_COUNT = READ_COUNT +1
+WHERE BOARD_NO = 1991;
+
+SELECT * FROM BOARD
+WHERE BOARD_NO =1991;
 
 
 
