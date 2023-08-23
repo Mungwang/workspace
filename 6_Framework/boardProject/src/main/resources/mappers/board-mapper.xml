@@ -177,7 +177,6 @@
 	<insert id="insertBoardLike">
 	INSERT INTO BOARD_LIKE
 	VALUES(#{boardNo},#{memberNo})
-	
 	</insert>
 	
 	<!-- 좋아요 테이블 삭제-->
@@ -190,7 +189,6 @@
 	<select id="countBoardLike" resultType="_int">
 	SELECT COUNT(*) FROM BOARD_LIKE
 	WHERE BOARD_NO =#{boardNo}
-	
 	</select>
 	
 	<!-- 조회수 증가 -->

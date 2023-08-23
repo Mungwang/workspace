@@ -579,12 +579,14 @@ commit;
 -------------------------2023-08-23--------------------------
 -- 좋아요 테이블 삽입
 INSERT INTO BOARD_LIKE
-VALUES(1991,3);
+VALUES(1986,3);
 
 -- 좋아요 테이블 삭제
 DELETE FROM BOARD_LIKE WHERE BOARD_NO =1991 AND MEMBER_NO = 3;
 
 commit;
+
+DELETE FROM BOARD WHERE BOARD_NO =1991;
 
 -- 좋아요 개수 조회
 SELECT COUNT(*) FROM BOARD_LIKE

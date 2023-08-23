@@ -6,7 +6,7 @@ const boardLike = document.getElementById("boardLike");
 boardLike.addEventListener("click",e =>{
 
     if(loginMemberNo == ""){
-        alert("로그인해라");
+        alert("로그인한후 이용해주세요");
         return;
 
     }

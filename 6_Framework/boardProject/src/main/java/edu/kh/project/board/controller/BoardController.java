@@ -150,8 +150,8 @@ public class BoardController {
 			// 쿠키를 이용한 조회 수 증가 처리
 			
 			// 1) 비회원 또는 로그인한 회원의 글이 아닌 경우
-			if(loginMember !=null || // 비회원 
-				loginMember.getMemberNo() !=board.getBoardNo()) {
+			if(loginMember ==null || // 비회원 
+					loginMember.getMemberNo() !=board.getBoardNo()) {
 				
 				// 2) 쿠키 얻어오기
 				Cookie c = null;
@@ -264,7 +264,7 @@ public class BoardController {
 	@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
 	public int like(@RequestBody Map<String,Integer> paramMap ) {
 		
-		// System.out.println(paramMap);
+		System.out.println(paramMap);
 		
 		return service.like(paramMap);
 		
