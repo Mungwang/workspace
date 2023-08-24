@@ -2,6 +2,7 @@ package edu.kh.project.myPage.controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
@@ -185,6 +187,32 @@ public class MyPageController {
 		return path;
 	}
 	
+	
+	/* MultipartFile : input type="file"로 제출된 파일을 저장한 객체
+	 * 
+	 * [제공하는 메소드]
+	 * - transferTo() : 파일을 지정된 경로에 저장(메모리 -> HDD/SSD)
+	 * - getOriginalFileName() : 파일 원본명
+	 * - getSize() : 파일 크기
+	 * 
+	 */
+	
+	// 프로필 이미지 변경
+	@PostMapping("/profile")
+	public String updateProfile(
+			 @RequestParam("profileImage") MultipartFile profileImage // 업로드 파일
+			,@SessionAttribute("loginMember") Member loginMember // 로그인한 회원
+			, RedirectAttributes ra // 리다이렉트 시 메세진 전달
+			, HttpSession session // 세션 객체
+			) {
+		
+		// 웹 접근 경로
+		String webPath = "/resources/images/member/";
+		
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		return null;
+	}
 	
 	
 	
