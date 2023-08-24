@@ -48,8 +48,13 @@
                 <form action="profile" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data">
 
                     <div class="profile-image-area">
+                        <c:if test="${empty loginMember.profileImage}" >
+                             <img src="/resources/images/user.png" id="profileImage">
+                        </c:if>
 
-                        <img src="/resources/images/user.png" id="profileImage">
+                        <c:if test="${!empty loginMember.profileImage}" >
+                             <img src="${loginMember.profileImage}" id="profileImage">
+                        </c:if>
 
                     </div>
                     <span id="deleteImage">x</span>
@@ -62,12 +67,12 @@
                     
                     <div class="myPage-row">
                         <label>이메일</label>
-                        <span>로그인 회원 이메일</span>
+                        <span>${loginMember.memberEmail}</span>
                     </div>
                     
                     <div class="myPage-row">
                         <label>가입일</label>
-                        <span>로그인 회원 가입일</span>
+                        <span>${loginMember.enrollDate}</span>
                     </div>
                     
                 </form>

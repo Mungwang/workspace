@@ -131,10 +131,19 @@
 
 					<%-- 로그인 되었을 때 --%>
 					<c:otherwise>
+					
 						<article class="login-area">
 
-							<a href="/myPage/profile"> <img src="/resources/images/user.png" id="memberProfile">
+							 <c:if test="${empty loginMember.profileImage}" >
+                             <a href="/myPage/profile"> <img src="/resources/images/user.png" id="memberProfile">
 							</a>
+                        	</c:if>
+
+                       		 <c:if test="${!empty loginMember.profileImage}" >
+							 <a href="/myPage/profile"> <img src="${loginMember.profileImage}" id="memberProfile">
+							</a>
+                        	</c:if>
+							
 
 							<div class="my-info">
 								<div>

@@ -1,5 +1,7 @@
 package edu.kh.project.myPage.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -204,14 +206,26 @@ public class MyPageController {
 			,@SessionAttribute("loginMember") Member loginMember // 로그인한 회원
 			, RedirectAttributes ra // 리다이렉트 시 메세진 전달
 			, HttpSession session // 세션 객체
-			) {
+			)throws IllegalStateException, IOException {
 		
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 		
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		return null;
+		// 프로필 이미지 수정 서비스 호출
+		
+		int result = service.updateProfile(profileImage, webPath,filePath, loginMember);
+		
+		String message = null;
+		
+		if(result > 0) message = "프로필 이미지가 변경되었습니다.";
+		else 		   message = "프로필 변경 실패";
+		
+		
+		ra.addFlashAttribute("message",message);
+		
+		return "redirect:profile";
 	}
 	
 	

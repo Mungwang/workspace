@@ -51,10 +51,22 @@ public class MyPageDAO {
 		return sqlSession.update("myPageMapper.changePw",member);
 	}
 
+	/** 회원탈퇴
+	 * @param memberNo
+	 * @return result
+	 */
 	public int secession(int memberNo) {
 		// sqlSessionTemplate : 마이바티스 + DECP + close자동 + 트랜잭션처리
 		
 		return sqlSession.update("myPageMapper.secession",memberNo);
+	}
+
+	/** 프로필 이미지 수정
+	 * @param loginMember
+	 * @return result
+	 */
+	public int updateProfileImage(Member loginMember) {
+		return sqlSession.update("myPageMapper.updateProfileImage",loginMember);
 	}
 	
 	
