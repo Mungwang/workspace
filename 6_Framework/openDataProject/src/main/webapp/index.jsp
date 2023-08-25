@@ -44,9 +44,31 @@
 			
 		   $.ajax({
 				url : "air",
-				data : { location : ${"#location"}.val()},
-				success : function() {
+				data : { location : $("#location").val()},
+				success : function(data) {
+					// console.log(data);
+					// console.log(data.response.body.items);
 					
+					const itemArr = data.response.body.items;
+					
+					let value = "";
+					
+					for(let item of itemArr){
+						console.log(item);
+						value += "<tr>"
+									+"<td>"+ item.stationName +"</td>"
+									+"<td>"+ item.dataTime +"</td>"
+									+"<td>"+ item.khaiValue +"</td>"
+									+"<td>"+ item.pm10Value +"</td>"
+									+"<td>"+ item.so2Value +"</td>"
+									+"<td>"+ item.coValue +"</td>"
+									+"<td>"+ item.no2Value +"</td>"
+									+"<td>"+ item.o3Value +"</td>"
+								+"</tr>"
+					}
+					
+					$("#result1 > tbody").html(value);
+						
 				}, error : function() {
 					console.log("통신 실패");
 				}

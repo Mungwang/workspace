@@ -99,7 +99,6 @@ public class AirPollutionJavaAppRun {
 				
 				list.add(air);
 				
-				
 			}
 			
 			// System.out.println("list : " + list);
