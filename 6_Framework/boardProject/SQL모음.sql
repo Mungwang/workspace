@@ -601,6 +601,9 @@ SELECT * FROM BOARD
 WHERE BOARD_NO =1991;
 
 -------------------------2023-08-24--------------------------
+UPDATE MEMBER SET
+PROFILE_IMG = 값
+WHERE MEMBER_NO = 회원번호;
 
 
 
