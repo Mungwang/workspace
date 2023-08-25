@@ -39,7 +39,7 @@ public interface BoardService {
 
 	/** 조회수 증가 서비스
 	 * @param boardNo
-	 * @return
+	 * @return result
 	 */
 	int updateReadCount(int boardNo);
 
