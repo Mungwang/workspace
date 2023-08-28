@@ -65,7 +65,7 @@
    
    $(function(){
 	   $("#btn1").click(function(){
-		  //Json 형식으로 응답 받을 때
+		  //Json 형식으로 응답 받을 때 
 		   $.ajax({
 				url : "air",
 				data : { location : $("#location").val()},
