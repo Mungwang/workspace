@@ -21,7 +21,7 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
+        
         <form action="update" method="POST"
             class="board-write" id="boardUpdateFrm" enctype="multipart/form-data">
             <%-- enctype="multipart/form-data : 제출 데이터 인코딩 X
