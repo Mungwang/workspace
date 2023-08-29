@@ -22,7 +22,6 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-                          
         <form action="update" method="POST"
             class="board-write" id="boardUpdateFrm" enctype="multipart/form-data">
             <%-- enctype="multipart/form-data : 제출 데이터 인코딩 X
@@ -42,36 +41,34 @@
             <%-- 
                 board.imageList에 존재하는 이미지 객체를 얻어와
                 순서(imageOrder) 별로 변수 생성
-
-             --%>
-
-             <c:forEach items="${board.imgeList}" var="img">
+            --%>
+    
+             <c:forEach items="${board.imageList}" var="img">
                 <c:choose>
 
-                   <c:when test="${board.imageList} == 0 ">
+                   <c:when test="${img.imageOrder == 0}">
                         <c:set var="img0" value="${img.imagePath}${img.imageReName}"/>
                     </c:when>
 
-                    <c:when test="${board.imageList} == 1 ">
+                    <c:when test="${img.imageOrder== 1}">
                         <c:set var="img1" value="${img.imagePath}${img.imageReName}"/>
                     </c:when>
 
-                    <c:when test="${board.imageList} == 2 ">
+                    <c:when test="${img.imageOrder== 2 }">
                         <c:set var="img2" value="${img.imagePath}${img.imageReName}"/>
                     </c:when>
 
-                    <c:when test="${board.imageList} == 3 ">
+                    <c:when test="${img.imageOrder== 3}">
                         <c:set var="img3" value="${img.imagePath}${img.imageReName}"/>
                     </c:when>
 
-                    <c:when test="${board.imageList} == 4 ">
+                    <c:when test="${img.imageOrder== 4 }">
                         <c:set var="img4" value="${img.imagePath}${img.imageReName}"/>
                     </c:when>
                  
                 </c:choose>
 
              </c:forEach>
-
 
             <!-- 썸네일 영역 -->
             <h5>썸네일</h5>
@@ -134,6 +131,11 @@
                 <button type="submit" id="writebtn">등록</button>
             </div>
 
+            <%-- 기존 이미지가 있다가 삭제된 이미지의 순서를 기록 --%>
+            <input type="hidden" name="deleteList" value="">
+
+            <%-- 수정 성공 시 주소(쿼리스트링) 유지용도 --%>
+            <input type="hidden" name="cp" value=${param.cp}>
             
         </form>
 
@@ -141,7 +143,7 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <script src="/resources/js/board/boardWrite.js"></script>
+    <script src="/resources/js/board/boardUpdate.js"></script>
 
 </body>
 </html>
