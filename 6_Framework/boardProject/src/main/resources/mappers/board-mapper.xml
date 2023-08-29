@@ -149,8 +149,6 @@
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_NO = #{boardNo}
 		ORDER BY COMMENT_NO
-
-
 	</select>
 
 	<!-- 좋아요 여부 확인 -->

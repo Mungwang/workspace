@@ -1,12 +1,15 @@
 package edu.kh.project.board.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.Board;
+import edu.kh.project.board.model.service.BoardService;
 import edu.kh.project.board.model.service.BoardService2;
 import edu.kh.project.member.model.dto.Member;
 
@@ -28,6 +32,9 @@ public class BoardController2 {
    
    @Autowired
    private BoardService2 service;
+   
+   @Autowired // 게시글 수정시 상세조회 서비스 호출용
+   private BoardService boardService;
    
    // 게시글 작성 화면 전환
    @GetMapping("/{boardCode:[0-9]+}/insert")
@@ -96,5 +103,38 @@ public class BoardController2 {
       
       return path;
    }
+   
+   // 게시글 수정 화면 전환
+   @GetMapping("/{boardCode}/{boardNo}/update")
+   public String boardUpdate(
+		   @PathVariable("boardCode") int boardCode,
+		   @PathVariable("boardNo") int boardNo,
+		   Model model // 데이터 전달용 객체(기본 scope : request)
+		   ) {
+	   Map<String, Object> map = new HashMap<String, Object>();
+	   map.put("boardCode", boardCode);
+	   map.put("boardNo", boardNo);
+	   
+	   Board board = boardService.selectBoard(map);
+	   
+	   model.addAttribute("board", board);
+	   
+	   // forward(요청 위임) -> request scope 유지
+	   return "board/boardUpdate";
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
 }
