@@ -55,7 +55,7 @@ public class BoardController2 {
          HttpSession session
          ) throws IllegalStateException, IOException {
 
-         // 파마리터 : 제목, 내용, 파일(0~5개)
+         // 파라미터 : 제목, 내용, 파일(0~5개)
          // 파일 저장 경로 : HttpSession
          // 세션 : 로그인한 회원의 번호
          // 리다이렉트 시 데이터 전달 : RedirectAttributes

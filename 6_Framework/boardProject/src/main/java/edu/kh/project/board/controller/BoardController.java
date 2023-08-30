@@ -264,7 +264,7 @@ public class BoardController {
 	@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
 	public int like(@RequestBody Map<String,Integer> paramMap ) {
 		
-		System.out.println(paramMap);
+		//System.out.println(paramMap);
 		
 		return service.like(paramMap);
 		
