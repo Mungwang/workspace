@@ -9,10 +9,9 @@
  
  .comment-write-area > textarea{
     flex-basis: 75%;
-     margin-right: 10px;
+    margin-right: 10px;
     resize: none;
  }
- 
  .comment-write-area > button{
     flex-basis: 7%;
      height: 85px;
