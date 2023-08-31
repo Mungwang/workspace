@@ -23,7 +23,6 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
         <section class="board-detail">  
             <!-- 제목 -->
             <h1 class="board-title">${board.boardTitle}  <span> - ${boardName}</span>    </h1>
@@ -153,7 +152,6 @@
                     <button id="deleteBtn">삭제</button>
                 </c:if>
 
-
                 <button id="goToListBtn">목록으로</button>
             </div>
 
@@ -194,10 +192,8 @@
         //            -> EL 값이 null이여도 ""(빈문자열)로 출력
         const loginMemberNo = "${loginMember.memberNo}"
 
-        console.log(boardNo);
-        console.log(loginMemberNo);
-        
-        
+        const boardCode = "${board.boardCode}"
+
     </script>
 
     <script src="/resources/js/board/boardDetail.js"></script>
