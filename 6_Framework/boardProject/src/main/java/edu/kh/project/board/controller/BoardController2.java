@@ -173,6 +173,40 @@ public class BoardController2 {
 	   
    }
    
+   // 게시글 삭제
+   @GetMapping("/{boardCode}/{boardNo}/delete")
+   public String boardDelete(
+		   Board board 
+		  , @PathVariable("boardCode") int boardCode
+		  , @PathVariable("boardNo") int boardNo
+		  , RedirectAttributes ra 
+		  ){
+	   
+	   board.setBoardCode(boardCode);
+	   board.setBoardNo(boardNo);
+	   
+	   int result = service.boradDelete(board);
+	   
+	   String message = null;
+	   String path = "redirect:"; // redirect는 겟방식으로 요청처리
+	   
+	   if(result>0) {
+		   message ="게시글이 삭제되었습니다.";
+		   path += "/board/" + boardCode;   
+		   
+	   }else {
+		   message = "게시글 삭제 실패";
+		   path += "/board/"+ boardCode + "/" + boardNo;
+	   }
+	   
+	  
+	   ra.addFlashAttribute("message",message);
+	   
+	   return path;
+	   
+	   
+   }
+   
    
    
    

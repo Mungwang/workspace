@@ -108,9 +108,11 @@ public class OpenAPIController {
 				String url = "http://apis.data.go.kr/1741000/TsunamiShelter3/getTsunamiShelter1List";
 				url +="?serviceKey=" + SERVICEKEY;
 				url +="&pageNo=1";
-				url +="&numOfRows=20"; // 결과 개수
+				url +="&numOfRows=10"; // 결과 개수
 				url +="&returnType=xml";
+				
 
+				System.out.println(url);
 				// 1. 작성된 url 정보를 넣어 URL 객체 생성
 				URL requestUrl = new URL(url);
 				

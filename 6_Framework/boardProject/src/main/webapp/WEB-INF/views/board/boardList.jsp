@@ -136,12 +136,12 @@
 
 
          <!-- 검색창 -->
-            <form action="#" method="get" id="boardSearch">
+            <form action="${boardCode}" method="get" id="boardSearch">
 
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>
                     <option value="c">내용</option>
-                    <option value="tc">제목+내용</tion>
+                    <option value="tc">제목+내용</option>
                     <option value="w">작성자</option>
                 </select>
 

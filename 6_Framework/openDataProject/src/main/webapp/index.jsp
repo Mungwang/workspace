@@ -16,7 +16,7 @@
       <option>서울</option>
       <option>부산</option>
       <option>대전</option>
-   </select>
+    </select>
    
    <button id="btn1">해당 지역 대기 오염 정보</button>
    <br><br>
@@ -172,10 +172,14 @@
 				   // 1. 넘겨받은 데이터를 $() 제이쿼리화 시킨후
 				   //    응답데이터 안에 실제 데이터가 담겨 있는 요소 선택
 				   const itemArr = $(result).find("row");
+				   console.log(result);
 				   
 				   // 2. 반복문을 통해 실제 데이터가 담긴 요소들에 접근해서 동적으로 요소 만들기
 				   let value;
 				   itemArr.each(function(index, item){
+
+					   console.log(index);
+					   console.log(item);
 					   
 					   // console.log(item);
 					   // console.log($(item).find("stationName").text());
