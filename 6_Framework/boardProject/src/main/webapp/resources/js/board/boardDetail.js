@@ -91,22 +91,22 @@ if(deleteBtn !=null){
     })
 }
 
-// // 목록으로 버튼 클릭시
-// const goToListBtn = document.getElementById("goToListBtn");
+// 목록으로 버튼 클릭시
+const goToListBtn = document.getElementById("goToListBtn");
 
-// goToListBtn.addEventListener("click",e =>{
+goToListBtn.addEventListener("click",e =>{
 
-//     let query = location.search;
+    let query = location.search;
 
-//     if(query !=""){
+    if(query !=""){
 
-//         location.href = location.pathname.substring(0, location.pathname.indexOf("/", 6))+"/"+ boardCode + query;
-//     }
-//     else{
-//         location.href = location.pathname.substring(0, location.pathname.indexOf("/", 6))+"/" + boardCode
-//     }
+        location.href = location.pathname.substring(0, location.pathname.indexOf("/", 6))+"/"+ boardCode + query;
+    }
+    else{
+        location.href = location.pathname.substring(0, location.pathname.indexOf("/", 6))+"/" + boardCode
+    }
 
-// })
+})
 
 // 선생님
 goToListBtn.addEventListener("click",e =>{
