@@ -30,7 +30,7 @@
 	<!-- 닉네임으로 전화번호 조회 -->
 	
 	<!-- parameterType : 전달 받은 파라미터의 자료형 작성 (선택사항)
-		 	-> 작성 안하면 TypeHandler가 알아서 처리 
+		 	-> 작성 안하면 TypeHandler가 알아서 처리 !
 	 -->
 	
 	<select id="selectMemberTel" resultType="string">

@@ -76,7 +76,7 @@ public class BoardController {
 	//		  구분하지 않고 모두 매핑되는 문제가 발생
 	//		   -> 요청을 했는데 원하는 메소드가 실행안됨
 	
-	// 해결 방법 : @PathVariable 지정 시 정규 표현식 사용
+	// 해결 방법 : @PathVariable 지정 시 정규 표현식 사용!
 	// { 키:정규표현식}
 	
 	// 게시글 목록 조회  
