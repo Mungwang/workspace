@@ -18,8 +18,8 @@
 </head>
 
 <body>
+   
    <main>
-
       <jsp:include page="../common/header.jsp"></jsp:include>
 
       <button id="addTarget">추가</button>

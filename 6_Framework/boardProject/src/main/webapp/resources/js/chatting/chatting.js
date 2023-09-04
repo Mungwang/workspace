@@ -8,8 +8,6 @@ const targetInput = document.querySelector("#targetInput"); // 사용자 검색
 
 const resultArea = document.querySelector("#resultArea"); // 검색 결과
 
-
-
 let selectChattingNo; // 선택한 채팅방 번호
 let selectTargetNo; // 현재 채팅 대상
 let selectTargetName; // 대상의 이름
