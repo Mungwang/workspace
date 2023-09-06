@@ -22,7 +22,6 @@ const MenuPrint = (props) =>{
     return(
         <h4>김밥 : {props.김밥}, 떡볶이 : {props.떡볶이} </h4>
 
-
     );
 }
 
