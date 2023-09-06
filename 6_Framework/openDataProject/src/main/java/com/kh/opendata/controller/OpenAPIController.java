@@ -30,8 +30,8 @@ public class OpenAPIController {
 		url += "&sidoName=" + URLEncoder.encode(location,"UTF-8"); // 지역명 추가(한글이 들어가면 인코딩 처리해야함)
 		url += "&returnType=json"; // 리턴 타입
 		url += "&numOfRows=20"; // 결과 개수
-
 		// 1. 작성된 url 정보를 넣어 URL 객체 생성
+		System.out.println(url);
 		URL requestUrl = new URL(url);
 
 		// 2. 생성된 URL 객체로 URLConnection 생성
