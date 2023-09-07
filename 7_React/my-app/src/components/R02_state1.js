@@ -10,7 +10,7 @@ const InputTest = () => {
     // inputValue : 값을 저장하는 변수
     // setInputValue : inputValue에 값을 대입하는 setter 역할의 함수
 
-    const changInputValue = (e) =>{
+    const changeInputValue = (e) =>{
         console.log(e.target.value);
         setInputValue(e.target.value);
     } 
@@ -29,7 +29,7 @@ const InputTest = () => {
 
 
         <input type="text" value={inputValue}
-        onChange={changInputValue}/>
+        onChange={changeInputValue}/>
         // onChange={(e) => {setInputValue(e.target.value)}} /> 
         
     );
