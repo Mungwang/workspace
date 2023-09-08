@@ -10,6 +10,7 @@ import State1 from './components/R02_state1.js';
 import State2 from './components/R03_state2.js';
 import State3 from './components/R04_state3.js';
 import TodoList1 from './components/R05_todolist1.js';
+import ContextApi from './components/R06_context_api.js';
 
   function App() {
     // 리액트의 컴포넌트는 딱 하나의 요소만을 반환할수 있다.
@@ -34,8 +35,9 @@ import TodoList1 from './components/R05_todolist1.js';
 
         <State2 init={100}/>
         <hr/> */}
-        <State3/>
-        <TodoList1/>
+        {/* <State3/> */}
+        {/* <TodoList1/> */}
+        <ContextApi/>
       </>
     );
   }
