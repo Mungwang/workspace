@@ -14,7 +14,7 @@ import ContextApi from './components/R06_context_api.js';
 
   function App() {
     // 리액트의 컴포넌트는 딱 하나의 요소만을 반환할수 있다.
-    // -> 여러 요소를 반환하고 싶을 때는 부모 요소로 묶어준다!
+    // -> 여러 요소를 반환하고 싶을 때는 부모 요소로 묶어준다!!
     return (
       /* fragment(<></>) : 반환되는 요소를 감쌀 때 사용, 해석 x */
       <>
