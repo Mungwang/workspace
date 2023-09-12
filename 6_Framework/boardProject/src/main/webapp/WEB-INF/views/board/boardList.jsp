@@ -30,11 +30,9 @@
         <%-- 검색을 진행한 경우 파라미터(key, query)를
              쿼리스트링 형태로 저장한 변수를 선언
         --%>
-
         <c:if test="${!empty param.key}" >
             <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
         </c:if>
-
 
         <section class="board-list">
 
