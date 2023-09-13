@@ -37,7 +37,7 @@ const LoginComponent = () => {
 
             // 로그인 성공시
             setLoginMember(map.loginMember);
-            setTodoList(map.todolist)
+            setTodoList(map.todoList)
             
             setId('');
             setPw('');
