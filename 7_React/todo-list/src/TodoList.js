@@ -6,7 +6,7 @@ const TodoList = () => {
     const { setTodoList ,loginMember, todoList } = useContext(TodoListContext);
     const [inputTodo, setInputTodo] = useState('');
 
-    // 임의의 변수를 만들어 key값으로 사용하는걸 권장함
+    // 임의의 변수를 만들어 key값으로 사용하는걸 권장함!!
     let keyIndex = 0;
 
     // 할일 추가
