@@ -8,7 +8,7 @@ import TodoList from './TodoList';
 export const TodoListContext = createContext(); // 전역변수 생성
 
 function App() {
-  // 회원가입, 로그인, 회원의 Todo List출력/추가/제거
+  // 회원가입, 로그인, 회원의 Todo List출력/추가/제거!
   const [ signupView, setSignupView ] = useState(false);
 
   // 로그인한 회원 정보 저장
