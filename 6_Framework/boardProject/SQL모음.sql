@@ -3,7 +3,7 @@ ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 -- 계정 생성하기
 CREATE USER project IDENTIFIED BY "project1234";
 
--- 권한 부여
+-- 권한 부여!
 GRANT CONNECT, RESOURCE, CREATE VIEW TO project;
 
 -- 객체 생성 공간 할당
