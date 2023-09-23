@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { TodoListContext } from './App';
 const LoginComponent = () => {
 
-    // 전역변수 Context를 사용
+    // 전역변수 Context를 사용!
     const { setTodoList, setLoginMember, loginMember} = useContext(TodoListContext);
 
     const [id, setId] = useState('');
