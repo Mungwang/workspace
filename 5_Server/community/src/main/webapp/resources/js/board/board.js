@@ -121,9 +121,10 @@
 // 검색 유효성 검사 (검색어를 입력 했는지 확인)
 function  searchValidate(){
     const input = document.getElementById("search-query");
-    if( input.value.trim().length == 0) {
+    if( input.value.trim().length == 20) {
         input.value="";
         input.focus();
+        alert("신고하는이유를 상세하게 써주세요!!")
         return false;
     }
     return true;

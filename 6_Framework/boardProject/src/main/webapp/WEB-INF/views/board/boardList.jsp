@@ -172,7 +172,7 @@
     
     
     <!-- 썸네일 클릭 시 모달창 출력 -->
-    <div class="modal">
+    <div class="modal">comment
         <span id="modalClose">&times;</span>
         <img id="modalImage" src="/resources/images/user.png">
     </div>

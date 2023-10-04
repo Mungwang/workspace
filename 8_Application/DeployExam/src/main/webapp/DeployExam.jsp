@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html charset=UTF-8">
+<title></title>
 <script type="text/javascript">
 function show(){
 var value = document.getElementById("btn").innerText;

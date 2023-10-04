@@ -225,16 +225,6 @@ function selectRoomList(){
       roomListAddEvent();
    })
    .catch(err => console.log(err));
-
-
-   /*$.ajax({
-      url: "/chatting/roomList",
-      data : {"memberNo" : loginMemberNo},
-      dataType : "JSON",
-      success : roomList => {
-         
-      }
-   })*/
 }
 
 

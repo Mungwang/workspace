@@ -116,7 +116,6 @@ public class BoardServiceImpl implements BoardService {
 
 		// 2. 1번 조회 결과 + cp를 이용해서 Pagination 객체 생성
 		// -> 내부 필드가 모두 계산되어 초기화됨
-
 		Pagination pagination = new Pagination(cp,listCount);
 
 		// 3. 특정 게시판에서

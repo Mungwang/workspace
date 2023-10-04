@@ -15,7 +15,6 @@ public interface ChattingService {
 
     int createChattingRoom(Map<String, Integer> map);
 
-
     int insertMessage(Message msg);
 
     int updateReadFlag(Map<String, Object> paramMap);

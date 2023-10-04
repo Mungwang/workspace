@@ -18,10 +18,11 @@
 </head>
 
 <body>
-   
+
+  
    <main>
       <jsp:include page="../common/header.jsp"></jsp:include>
-
+       ${roomList}
       <button id="addTarget">추가</button>
 
       <div id="addTargetPopupLayer" class="popup-layer-close">  
@@ -44,10 +45,9 @@
             <li class="result-row">일치하는 회원이 없습니다</li> --%>
          </ul>
       </div>
-   
       <div class="chatting-area">
          <ul class="chatting-list">
-            <c:forEach var="room" items="${roomList}">
+           <%--  <c:forEach var="room" items="${roomList}">
 
                <li class="chatting-item" chat-no="${room.chattingNo}" target-no="${room.targetNo}">
                   <div class="item-header">
@@ -73,7 +73,7 @@
                   </div>
                </li>
 
-            </c:forEach>
+            </c:forEach> --%>
 
          </ul>
 
