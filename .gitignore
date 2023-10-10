@@ -22,4 +22,6 @@ pom.properties
 MANIFEST.MF
 *.log
 .factorypath
-settings.json 
+settings.json
+
+config.properties
