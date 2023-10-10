@@ -10,10 +10,10 @@ public class MainController {
 	@RequestMapping("/")
 	public String mainForward(Model model) {
 		
-		model.addAttribute("message", "스프링 부트 테스트 중입니다.");
+		model.addAttribute("name", "홍길동");
 		
 		// Spring MVC : /web app/WEB-INF/views/common/main.jsp
-		
+	
 		// Spring Boot(+thymeleaf 템플릿 엔진)
 		// src/main/resources/templates/common/main.html
 		
