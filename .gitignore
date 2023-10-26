@@ -11,7 +11,7 @@ bin/
 *.tar.gz
 *.rar
 
-# Servers 폴더
+# Servers 폴더관련
 Servers/
 
 # Spring 관련 폴더, 파일
