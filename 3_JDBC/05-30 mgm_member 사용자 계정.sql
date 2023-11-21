@@ -5,7 +5,7 @@ WHERE MEMBER_ID = 'user01'
 AND MEMBER_PW = 'pass01'
 AND SECESSION_FL = 'N';
 
--- 회원 정보 모두 조회(아이디, 이름,가입일)
+-- 회원 정보 모두 조회(아이디, 이름, 가입일)
 -- 단, 탈퇴 회원 제외, 아이디 오름 차순 조회
 
 SELECT MEMBER_ID,MEMBER_NM,ENROLL_DATE
