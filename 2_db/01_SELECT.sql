@@ -6,7 +6,7 @@
   - RESULT SET에는 0개 이상의 행이 포함될 수있다.
      왜 0개? 조건이 맞는 행이 없을 수도 있기 때문에
 */
-
+ 
 -- EMPLOYEE 테이블에서 모든 사원의 정보를 조회!
 -- '*' : ALL, 모든, 전부
 SELECT * FROM EMPLOYEE;
