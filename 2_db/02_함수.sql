@@ -4,7 +4,7 @@
 
 -- 그룹(GROUP) 함수 : N개의 값을 읽어 1개의 결과 반환
 
--- 함수는 SELECT절, WHERE절, ORDER BY, GROUP BY, HAVING 사용가능
+-- 함수는 SELECT절, WHERE절, ORDER BY, GROUP BY, HAVING 사용 가능
 
 /*********************** 단일행 함수 ***************************/
 
