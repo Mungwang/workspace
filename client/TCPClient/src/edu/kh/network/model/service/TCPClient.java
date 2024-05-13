@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class TCPClient {
 	
 	public void clientStart(){
-	// 1. 서버의 IP주소와 서버가 정한 포트번호를 매개변수로 하여 클라이언트용 소켓 객체 생성
+	// 1.서버의 IP주소와 서버가 정한 포트번호를 매개변수로 하여 클라이언트용 소켓 객체 생성
 	
 	String serverIP = "127.0.0.1"; // loop back ip(내 컴퓨터를 가르키는 ip주소)
 	int port = 8500; // 서버소켓이 기다리고 있는 포트 번호 작성!
